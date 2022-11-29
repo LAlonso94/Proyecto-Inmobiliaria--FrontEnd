@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "vite-project",
+=======
+  "name": "frontend",
+>>>>>>> 785176d9f9d19ccdc9d16ae472ffb3b3cf656405
   "private": true,
   "version": "0.0.0",
   "type": "module",
