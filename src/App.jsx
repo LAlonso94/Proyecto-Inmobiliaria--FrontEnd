@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <ChakraProvider>
-        <Login />
+        {/* <Login /> */}
         {/* <Register /> */}
       </ChakraProvider>
     </div>
