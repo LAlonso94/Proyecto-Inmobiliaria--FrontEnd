@@ -1,13 +1,13 @@
-import Login from "./components/Login";
+import Login from "./routes/Login";
 import { ChakraProvider } from "@chakra-ui/react";
-import Register from "./components/Register";
+import Register from "./routes/Register";
 
 function App() {
   return (
     <div>
       <ChakraProvider>
-        {/* <Login /> */}
-        {/* <Register /> */}
+        <Login />
+        <Register />
       </ChakraProvider>
     </div>
   );

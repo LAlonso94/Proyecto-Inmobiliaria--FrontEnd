@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Register.css";
+import "../routes/Register.css";
 
 import {
   Flex,
