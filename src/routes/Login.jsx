@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import "../routes/Login.css";
 import {
   Flex,
@@ -11,17 +12,26 @@ import {
   useColorModeValue,
   Text,
 } from "@chakra-ui/react";
+import { loginSesion } from "../api/Rule_auth_users";
 
 function Login() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.300", "blue.700");
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => alert(data);
+
+  const onSubmit = async (data) =>
+    await loginSesion(data)
+      .then(() => {
+        navigate("/api/home");
+      })
+      .catch((error) => {
+        alert(error);
+      });
 
   return (
     <div>
@@ -37,41 +47,47 @@ function Login() {
           //bg={formBackground}
           borderRadius={8}
         >
-          <img className="logo" src="./logoRossi.png" alt="logo" width="150" />
+          <img className="logo" src="../logoRossi.png" alt="logo" width="150" />
 
           <Text fontSize="4xl" textAlign="center">
             Bienvenido
           </Text>
-          <form className="formContainer">
+          <div className="formContainer">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Input
                 placeholder="email"
                 type="email"
                 required
-                pattern="/^[A-Za-z]+$/i"
                 {...register("email", { required: true, minLength: 8 })}
               />
               {errors.email && <span>El email es requerido</span>}
               <Input
-                placeholder="******"
+                //placeholder="******"
                 type="password"
                 variant="filled"
                 minLength="8"
                 maxLength="20"
                 required
+                {...register("password", { required: true, minLength: 8 })}
               />
               {errors.password && (
                 <span>La Contraseña ingresada no es valida</span>
               )}
+              <Button
+                className="buttonLogin"
+                colorScheme="red"
+                mb={8}
+                type="submit"
+              >
+                Iniciar sesión
+              </Button>
             </form>
-          </form>
-          <Button className="buttonLogin" colorScheme="red" mb={8}>
-            Iniciar sesión
-          </Button>
+          </div>
+
           <Text fontSize="1xl" textAlign="center">
             ¿No tienes cuenta?
           </Text>
-          <Button type="submit" variant="link">
+          <Button variant="link" onClick={() => navigate("/api/registro")}>
             Registrarse
           </Button>
           <FormControl display="flex" justifyContent="center">
