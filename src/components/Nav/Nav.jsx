@@ -1,5 +1,6 @@
 import React from "react";
 import "../Nav/Nav.css";
+import Admin from "../../routes/Admin/Admin";
 import { Button, WrapItem, Wrap } from "@chakra-ui/react";
 function Nav() {
   return (
@@ -12,7 +13,7 @@ function Nav() {
             <Button variant="ghost">SERVICIOS</Button>
             <Button variant="ghost">ESTUDIO</Button>
             <Button variant="ghost">CONTACTO</Button>
-            <Button variant="ghost">ADMINISTRAR</Button>
+            <Admin />
           </WrapItem>
         </Wrap>
       </nav>

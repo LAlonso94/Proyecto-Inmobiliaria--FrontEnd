@@ -8,8 +8,8 @@ function App() {
     <div>
       <ChakraProvider>
         <Home />
-        {/* <Login />
-        <Register /> */}
+        <Login />
+        <Register />
       </ChakraProvider>
     </div>
   );
