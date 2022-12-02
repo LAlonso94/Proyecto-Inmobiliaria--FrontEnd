@@ -21,12 +21,6 @@ function Header() {
           <Button colorScheme="gray" color="red " variant="solid">
             ENCONTRÁ TU NUEVA CASA O APARTAMENTO
           </Button>
-          <Button colorScheme="red" variant="solid">
-            ALQUILER
-          </Button>
-          <Button colorScheme="red" variant="solid">
-            VENTA
-          </Button>
         </WrapItem>
         <Menu>
           {({ isOpen }) => (
@@ -36,13 +30,49 @@ function Header() {
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
               >
-                {isOpen ? "Close" : "Open"}
+                {isOpen ? "Operación" : "Operación"}
               </MenuButton>
               <MenuList>
-                <MenuItem>Download</MenuItem>
-                <MenuItem onClick={() => alert("Kagebunshin")}>
-                  Create a Copy
-                </MenuItem>
+                <MenuItem>Alquiler</MenuItem>
+                <MenuItem>Venta</MenuItem>
+              </MenuList>
+            </>
+          )}
+        </Menu>
+        <Menu>
+          {({ isOpen }) => (
+            <>
+              <MenuButton
+                isActive={isOpen}
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+              >
+                {isOpen ? "Propiedad" : "Propiedades"}
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Casa</MenuItem>
+                <MenuItem>Apartamento</MenuItem>
+                <MenuItem>Local Comercial</MenuItem>
+                <MenuItem>Local Industrial</MenuItem>
+                <MenuItem>Terrenos</MenuItem>
+              </MenuList>
+            </>
+          )}
+        </Menu>
+        <Menu>
+          {({ isOpen }) => (
+            <>
+              <MenuButton
+                isActive={isOpen}
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+              >
+                {isOpen ? "Departamento" : "Departamento"}
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Canelones</MenuItem>
+                <MenuItem>Maldonado</MenuItem>
+                <MenuItem>Montevideo</MenuItem>
               </MenuList>
             </>
           )}
