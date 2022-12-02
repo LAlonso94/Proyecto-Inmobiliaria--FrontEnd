@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import "../routes/Register.css";
 
 import {
@@ -15,6 +16,10 @@ import {
 function Register() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.300", "blue.700");
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => console.log(data);
+
   return (
     <div>
       <Flex
@@ -33,30 +38,33 @@ function Register() {
             Registrarse
           </Text>
           <form className="formContainer">
-            <h6>Nombre:</h6>
-            <Input
-              placeholder="nombre"
-              type="text"
-              variant="filled"
-              mb={3}
-              required
-            />
-            <h6>Correo electronico:</h6>
-            <Input
-              placeholder="email"
-              type="email"
-              variant="filled"
-              mb={3}
-              required
-            />
-            <h6>Contraseña:</h6>
-            <Input
-              placeholder="******"
-              type="password"
-              variant="filled"
-              mb={6}
-              required
-            />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <h6>Nombre:</h6>
+              <Input
+                placeholder="nombre"
+                type="text"
+                variant="filled"
+                required
+              />
+              <h6>Correo electronico:</h6>
+              <Input
+                placeholder="email"
+                type="email"
+                required
+                pattern="/^[A-Za-z]+$/i"
+                {...register("email", { required: true, minLength: 8 })}
+              />
+
+              <h6>Contraseña:</h6>
+              <Input
+                placeholder="******"
+                type="password"
+                variant="filled"
+                minLength="8"
+                maxLength="20"
+                required
+              />
+            </form>
           </form>
           <Button className="buttonLogin" colorScheme="red" mb={8}>
             Crear cuenta
@@ -64,7 +72,7 @@ function Register() {
           <Text fontSize="1xl" textAlign="center">
             ¿Ya tienes cuenta?
           </Text>
-          <Button variant="link" colorScheme="blue">
+          <Button type="submit" variant="link" colorScheme="blue">
             Iniciar sesión
           </Button>
           <FormControl display="flex" justifyContent="center">

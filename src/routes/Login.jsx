@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import "../routes/Login.css";
 import {
   Flex,
@@ -14,6 +15,14 @@ import {
 function Login() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.300", "blue.700");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => alert(data);
+
   return (
     <div>
       <Flex
@@ -34,20 +43,27 @@ function Login() {
             Bienvenido
           </Text>
           <form className="formContainer">
-            <Input
-              placeholder="email"
-              type="email"
-              variant="filled"
-              mb={3}
-              required
-            />
-            <Input
-              placeholder="******"
-              type="password"
-              variant="filled"
-              mb={6}
-              required
-            />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Input
+                placeholder="email"
+                type="email"
+                required
+                pattern="/^[A-Za-z]+$/i"
+                {...register("email", { required: true, minLength: 8 })}
+              />
+              {errors.email && <span>El email es requerido</span>}
+              <Input
+                placeholder="******"
+                type="password"
+                variant="filled"
+                minLength="8"
+                maxLength="20"
+                required
+              />
+              {errors.password && (
+                <span>La Contraseña ingresada no es valida</span>
+              )}
+            </form>
           </form>
           <Button className="buttonLogin" colorScheme="red" mb={8}>
             Iniciar sesión
@@ -55,7 +71,7 @@ function Login() {
           <Text fontSize="1xl" textAlign="center">
             ¿No tienes cuenta?
           </Text>
-          <Button variant="link" colorScheme="blue">
+          <Button type="submit" variant="link">
             Registrarse
           </Button>
           <FormControl display="flex" justifyContent="center">
