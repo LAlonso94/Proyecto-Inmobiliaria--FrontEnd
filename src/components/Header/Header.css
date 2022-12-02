@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  gap: 2em;
+  padding: 2em;
+}
+button:hover {
+  color: white;
+}
