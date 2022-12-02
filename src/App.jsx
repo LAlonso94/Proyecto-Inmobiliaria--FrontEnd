@@ -6,15 +6,10 @@ import Home from "./routes/Home";
 function App() {
   return (
     <div>
-<<<<<<< HEAD
       <ChakraProvider>
         <Home />
-=======
-      {/* <Home /> */}
-      <ChakraProvider>
->>>>>>> 3ac4aaf1cfde03105e0b85d94ee51a7f8f9792d4
-        <Login />
-        <Register />
+        {/* <Login />
+        <Register /> */}
       </ChakraProvider>
     </div>
   );

@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  background-color: red;
+  justify-content: flex-end;
+  padding: 2em;
+  color: white;
+}
+button:hover {
+  color: black;
+}
