@@ -10,9 +10,10 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Textarea,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import "../FormEstate/Formulario.css";
 
 function Formulario(props) {
   const {
@@ -30,131 +31,214 @@ function Formulario(props) {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormControl isRequired flexDirection="column">
+        <FormControl
+          isRequired
+          display="flex"
+          flexDirection="column"
+          w="50vw"
+          justifyContent="center"
+          m="auto"
+        >
           <Flex h="3em" mb="1em">
-            <FormLabel w="20%" h="100%">
+            <FormLabel h="100%" w="30%">
               Operacion
             </FormLabel>
-            <Input
-              required
+            <Select
+              w="70%"
               variant="outline"
-              placeholder="Operación"
-              {...register("operacion", { required: true })}
-            />
-            {errors.operacion && (
-              <span>La operación ingresada no es valida</span>
-            )}
-          </Flex>
-          <Flex h="3em" mb="1em">
-            <FormLabel w="20%" h="100%">
-              Tipo
-            </FormLabel>
-            <Input
-              variant="outline"
-              placeholder="Tipo"
-              {...register("tipo", { required: true })}
-            />
-          </Flex>
-          <Flex h="3em" mb="1em">
-            <NumberInput
-              defaultValue={0}
-              min={0}
-              max={20}
-              {...register("dormitorios", { required: true })}
+              mb="1em"
+              {...register("operacion")}
             >
+              <option value="Venta">Venta</option>
+              <option value="Alquiler">Alquiler</option>
+            </Select>
+          </Flex>
+          <Flex h="3em" mb="1em">
+            <FormLabel h="100%" w="30%">
+              Tipo de inmueble
+            </FormLabel>
+            <Select w="70%" variant="outline" mb="1em" {...register("tipo")}>
+              <option value="Casa">Casa</option>
+              <option value="Apartamento">Apartamento</option>
+              <option value="Local comercial">Local comercial</option>
+              <option value="Local industrial">Local industrial</option>
+              <option value="Terreno">Terreno</option>
+            </Select>
+          </Flex>
+          <NumberInput
+            defaultValue={2}
+            min={1}
+            max={20}
+            display="flex"
+            mb="1em"
+            h="3em"
+            {...register("dormitorios")}
+          >
+            <FormLabel h="100%" w="30%">
               Dormitorios
-              <NumberInputField />
-              <NumberInputStepper>
+            </FormLabel>
+            <NumberInput w="70%">
+              <NumberInputField h="100%" />
+              <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-          </Flex>
-          <Flex h="3em" mb="1em">
-            <NumberInput
-              defaultValue={0}
-              min={0}
-              max={20}
-              {...register("baños", { required: true })}
-            >
+          </NumberInput>
+          <NumberInput
+            defaultValue={1}
+            min={1}
+            max={10}
+            display="flex"
+            mb="1em"
+            h="3em"
+            {...register("baños")}
+          >
+            <FormLabel h="100%" w="30%">
               Baños
-              <NumberInputField />
-              <NumberInputStepper>
+            </FormLabel>
+            <NumberInput w="70%">
+              <NumberInputField h="100%" />
+              <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-          </Flex>
+          </NumberInput>
           <Flex h="3em" mb="1em">
-            <FormLabel w="20%" h="100%">
-              Metros Terreno
+            <FormLabel w="30%" h="100%">
+              Metraje del terreno
             </FormLabel>
             <Input
+              w="70%"
               variant="outline"
-              placeholder="Pais"
+              placeholder="500 mt2"
               mb="1em"
               {...register("metrosTerreno")}
             />
           </Flex>
           <Flex h="3em" mb="1em">
-            <FormLabel h="100%" w="20%">
-              Posicion
+            <FormLabel w="30%" h="100%">
+              Metros edificados
             </FormLabel>
-            <Select variant="outline" mb="1em" {...register("posicion")}>
-              <option value="Golero">Golero</option>
-              <option value="Defensa">Defensa</option>
-              <option value="Mediocampista">Mediocampista</option>
-              <option value="Delantero">Delantero</option>
-            </Select>
+            <Input
+              w="70%"
+              variant="outline"
+              placeholder="70 mt2"
+              mb="1em"
+              {...register("metrosEdificados")}
+            />
+          </Flex>
+          <Flex h="5em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Otras Características
+            </FormLabel>
+            <Textarea
+              w="70%"
+              h="100%"
+              mb="1em"
+              placeholder="Muy buena ubicacion. Garantia ANDA, CGN, etc."
+              {...register("observaciones")}
+            />
+          </Flex>
+          <Flex h="5em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Descripcion
+            </FormLabel>
+            <Textarea
+              w="70%"
+              h="100%"
+              mb="1em"
+              placeholder="Complejo habitacional. Servicios de luz y agua, etc."
+              {...register("descripcion")}
+            />
           </Flex>
           <NumberInput
-            defaultValue={80}
+            defaultValue={80000}
             min={1}
-            max={180}
+            max={5000000}
             display="flex"
             mb="1em"
             h="3em"
-            {...register("peso")}
+            {...register("precio")}
           >
-            <FormLabel h="100%" w="20%">
-              Peso (Kg)
+            <FormLabel h="100%" w="30%">
+              Precio (USD)
             </FormLabel>
+            <NumberInput w="70%">
+              <NumberInputField h="100%" />
+              <NumberInputStepper h="100%">
+                <NumberIncrementStepper />
+                <NumberDecrementStepper />
+              </NumberInputStepper>
+            </NumberInput>
           </NumberInput>
-          <NumberInput
-            defaultValue={1.8}
-            min={1}
-            max={2.5}
-            display="flex"
-            mb="1em"
-            h="3em"
-            {...register("altura")}
-          >
-            <FormLabel h="100%" w="20%">
-              Altura (mts)
+          <Flex h="3em" mb="1em">
+            <FormLabel h="100%" w="30%">
+              Garage
             </FormLabel>
-          </NumberInput>
-          <NumberInput
-            defaultValue={15}
-            min={1}
-            max={29}
-            display="flex"
-            mb="1em"
-            h="3em"
-            {...register("camiseta")}
-          >
-            <FormLabel w="20%" h="100%">
-              No. camiseta
+            <Select w="70%" variant="outline" mb="1em" {...register("garage")}>
+              <option value="No">No</option>
+              <option value="Si">Si</option>
+            </Select>
+          </Flex>
+          <Flex h="3em" mb="1em">
+            <FormLabel h="100%" w="30%">
+              Departamento
             </FormLabel>
-          </NumberInput>
+            <Select
+              w="70%"
+              variant="outline"
+              mb="1em"
+              {...register("departamento")}
+            >
+              <option value="Montevideo">Montevideo</option>
+              <option value="Artigas">Artigas</option>
+              <option value="Canelones">Canelones</option>
+              <option value="Cerro Largo">Cerro Largo</option>
+              <option value="Colonia">Colonia</option>
+              <option value="Durazno">Durazno</option>
+              <option value="Flores">Flores</option>
+              <option value="Florida">Florida</option>
+              <option value="Lavalleja">Lavalleja</option>
+              <option value="Maldonado">Maldonado</option>
+              <option value="Paysandú">Paysandú</option>
+              <option value="Río Negro">Río Negro</option>
+              <option value="Rivera">Rivera</option>
+              <option value="Rocha">Rocha</option>
+              <option value="Salto">Salto</option>
+              <option value="San José">San José</option>
+              <option value="Soriano">Soriano</option>
+              <option value="Tacuarembó">Tacuarembó</option>
+              <option value="Treinta y Tres">Treinta y Tres</option>
+            </Select>
+          </Flex>
+          <Flex h="3em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Zona
+            </FormLabel>
+            <Input
+              w="70%"
+              variant="outline"
+              placeholder="Pocitos - Carrasco - Las Piedas - Punta del Este"
+              mb="1em"
+              {...register("zona")}
+            />
+          </Flex>
+          <Flex h="3em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Domicilio
+            </FormLabel>
+            <Input
+              w="70%"
+              variant="outline"
+              placeholder="Paysandú 63, esq. 18 de Julio"
+              mb="1em"
+              {...register("domicilio")}
+            />
+          </Flex>
         </FormControl>
-        <Button
-          size="md"
-          colorScheme="whatsapp"
-          type="submit"
-          onClick={() => {
-            props.titulares(titulares) && props.suplentes(suplentes);
-          }}
-        >
+        <Button m="auto" size="md" colorScheme="whatsapp" type="submit">
           Enviar
         </Button>
       </form>
