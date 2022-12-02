@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../routes/Register.css";
+import { useNavigate } from "react-router-dom";
 
 import {
   Flex,
@@ -16,7 +17,7 @@ import {
 function Register() {
   const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.300", "blue.700");
-
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
@@ -37,7 +38,7 @@ function Register() {
           <Text fontSize="4xl" textAlign="center">
             Registrarse
           </Text>
-          <form className="formContainer">
+          <div className="formContainer">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h6>Nombre:</h6>
               <Input
@@ -51,7 +52,6 @@ function Register() {
                 placeholder="email"
                 type="email"
                 required
-                pattern="/^[A-Za-z]+$/i"
                 {...register("email", { required: true, minLength: 8 })}
               />
 
@@ -64,15 +64,27 @@ function Register() {
                 maxLength="20"
                 required
               />
+              <Button
+                className="buttonLogin"
+                colorScheme="red"
+                mb={8}
+                type="submit"
+              >
+                Crear cuenta
+              </Button>
             </form>
-          </form>
+          </div>
           <Button className="buttonLogin" colorScheme="red" mb={8}>
             Crear cuenta
           </Button>
           <Text fontSize="1xl" textAlign="center">
             ¿Ya tienes cuenta?
           </Text>
-          <Button type="submit" variant="link" colorScheme="blue">
+          <Button
+            variant="link"
+            colorScheme="blue"
+            onClick={() => navigate("/api/login")}
+          >
             Iniciar sesión
           </Button>
           <FormControl display="flex" justifyContent="center">

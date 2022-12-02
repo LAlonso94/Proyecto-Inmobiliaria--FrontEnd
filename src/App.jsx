@@ -6,13 +6,9 @@ import DeleteEstate from "./components/Delete/DeleteEstate";
 
 function App() {
   return (
-    <div>
-      <ChakraProvider>
-        <Home />
-        <Login />
-        <Register />
-      </ChakraProvider>
-    </div>
+    <>
+      <Login />
+    </>
   );
 }
 

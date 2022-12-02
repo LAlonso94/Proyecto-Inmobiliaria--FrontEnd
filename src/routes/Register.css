@@ -5,6 +5,7 @@
 .container {
   display: flex;
 }
+
 /* .loginContainer {
   justify-content: center;
   align-self: center;
@@ -22,6 +23,7 @@
     #e31e24 82%
   );
 } */
+
 .logo {
   align-self: center;
 }
