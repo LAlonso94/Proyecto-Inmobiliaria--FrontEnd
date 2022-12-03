@@ -2,6 +2,7 @@ import React from "react";
 import "../Nav/Nav.css";
 import Admin from "../../routes/Admin/Admin";
 import { Button, WrapItem, Wrap } from "@chakra-ui/react";
+import Services from "../Services/Services";
 function Nav() {
   return (
     <div>
@@ -10,7 +11,7 @@ function Nav() {
           <WrapItem>
             <Button variant="ghost">INICIO</Button>
             <Button variant="ghost">EMPRESA</Button>
-            <Button variant="ghost">SERVICIOS</Button>
+            <Services />
             <Button variant="ghost">ESTUDIO</Button>
             <Button variant="ghost">CONTACTO</Button>
             <Admin />

@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import "../Header/Header.css";
-import { Button, WrapItem, Input } from "@chakra-ui/react";
+
 import {
   Menu,
+  Checkbox,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
+  Button,
+  WrapItem,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import Company from "../Company/Company";
 
 function Header() {
   return (
     <div>
-      <header className="header">
+      <header className="headerContainer">
         <WrapItem>
           <Button colorScheme="gray" color="red " variant="solid">
             ENCONTRÁ TU NUEVA CASA O APARTAMENTO
           </Button>
         </WrapItem>
+
         <Menu>
           {({ isOpen }) => (
             <>
               <MenuButton
+                color="red"
                 isActive={isOpen}
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
@@ -43,6 +45,7 @@ function Header() {
           {({ isOpen }) => (
             <>
               <MenuButton
+                color="red"
                 isActive={isOpen}
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
@@ -63,6 +66,7 @@ function Header() {
           {({ isOpen }) => (
             <>
               <MenuButton
+                color="red"
                 isActive={isOpen}
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
@@ -78,6 +82,9 @@ function Header() {
           )}
         </Menu>
       </header>
+      <hr className="hr"></hr>
+
+      <Company />
     </div>
   );
 }
