@@ -1,10 +1,18 @@
-.header {
+.headerContainer {
   display: flex;
   background-color: white;
   justify-content: center;
   gap: 2em;
-  padding: 2em;
+  padding: 4em;
+  background-image: url(/public/foto.jpg);
+  height: 55vh;
+}
+.hr {
+  height: 10px;
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: #e31e24;
 }
 button:hover {
-  color: white;
+  color: red;
 }

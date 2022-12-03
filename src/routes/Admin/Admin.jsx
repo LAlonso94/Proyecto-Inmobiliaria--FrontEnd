@@ -30,21 +30,21 @@ function Admin() {
           as={Button}
           aria-label="Options"
           icon={<SettingsIcon />}
-          variant="outline"
+          variant="ghost"
         >
-          Administrar
+          ADMINISTRAR
         </MenuButton>
         <MenuList>
-          <MenuItem icon={<SearchIcon />}>
+          <MenuItem color="red" icon={<SearchIcon />}>
             <Button colorScheme="red">Buscar</Button>
           </MenuItem>
-          <MenuItem icon={<AddIcon />}>
+          <MenuItem color="red" icon={<AddIcon />}>
             <Button colorScheme="red">Agregar</Button>
           </MenuItem>
-          <MenuItem icon={<EditIcon />}>
+          <MenuItem color="red" icon={<EditIcon />}>
             <Button colorScheme="red">Editar</Button>
           </MenuItem>
-          <MenuItem icon={<DeleteIcon />}>
+          <MenuItem color="red" icon={<DeleteIcon />}>
             <Button colorScheme="red">Eliminar</Button>
           </MenuItem>
         </MenuList>
