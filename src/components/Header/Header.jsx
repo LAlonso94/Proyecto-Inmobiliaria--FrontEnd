@@ -48,9 +48,6 @@ function Header() {
         </Stack>
       </header>
       <hr className="hr"></hr>
-
-      <Company />
-      <Footer />
     </div>
   );
 }
