@@ -1,6 +1,6 @@
 import React from "react";
 import "../Nav/Nav.css";
-import Admin from "../../routes/Admin/Admin";
+import Admin from "../Admin/Admin";
 import { Button, WrapItem, Wrap } from "@chakra-ui/react";
 import Services from "../Services/Services";
 function Nav() {
