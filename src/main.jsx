@@ -5,13 +5,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 import App from "./App";
 import "./index.css";
 import Home from "./routes/Home/Home";
-import Login from "./routes/Login";
-import Register from "./components/Register/Register";
-import Detail from "./routes/Detail";
+import Detail from "./routes/Detail/Detail";
+import Admin from "./routes/Admin/Admin";
 
 const router = createBrowserRouter([
   { name: "Home", path: "/", element: <Home /> },
   { name: "Detail", path: "/detalle/:id", element: <Detail /> },
+  { name: "Admin", path: "/administrar", element: <Admin /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

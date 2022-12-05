@@ -1,8 +1,6 @@
-import Login from "./routes/Login";
 import { ChakraProvider } from "@chakra-ui/react";
-import Register from "./components/Register/Register";
+import Login from "./components/Login/Login";
 import Home from "./routes/Home/Home";
-import DeleteEstate from "./components/Delete/DeleteEstate";
 
 function App() {
   return (
