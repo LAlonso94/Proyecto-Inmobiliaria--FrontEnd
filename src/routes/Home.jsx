@@ -11,7 +11,6 @@ function Home() {
     <div>
       <Nav />
       <Header />
-      <Footer />
     </div>
   );
 }

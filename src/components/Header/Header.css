@@ -1,12 +1,13 @@
 .headerContainer {
   display: flex;
-  background-color: white;
-  justify-content: center;
+  padding: 3em;
   gap: 2em;
-  padding: 4em;
   background-image: url(/public/foto.jpg);
-  height: 55vh;
+  height: 60vh;
+  align-items: center;
+  flex-direction: column;
 }
+
 .hr {
   height: 10px;
   margin-left: 0%;
