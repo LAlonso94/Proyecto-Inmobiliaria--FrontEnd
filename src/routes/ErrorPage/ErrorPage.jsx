@@ -18,7 +18,7 @@ function ErrorPage() {
         No se puede encontrar la página.
         <br />
         <br />
-        Intenta recargar la página o haz click en el botón para volver a la
+        Intenta recargar la página o haz click en el botón debajo para ir a la
         página principal.
       </Text>
       <Link to={`/`}>
@@ -29,7 +29,7 @@ function ErrorPage() {
           border="1px "
           padding="2"
         >
-          Volver a la página principal
+          Ir a la página principal
         </Button>
       </Link>
     </Flex>
