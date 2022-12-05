@@ -42,14 +42,15 @@ function Register() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <h6>Nombre:</h6>
               <Input
-                placeholder="nombre"
+                placeholder="Nombre"
                 type="text"
                 variant="filled"
                 required
+                {...register("nombre", { required: true })}
               />
               <h6>Correo electronico:</h6>
               <Input
-                placeholder="email"
+                placeholder="E-mail"
                 type="email"
                 required
                 {...register("email", { required: true, minLength: 8 })}
@@ -57,12 +58,13 @@ function Register() {
 
               <h6>Contraseña:</h6>
               <Input
-                placeholder="******"
+                placeholder="Contraseña"
                 type="password"
                 variant="filled"
                 minLength="8"
                 maxLength="20"
                 required
+                {...register("password", { required: true, minLength: 8 })}
               />
               <Button
                 className="buttonLogin"
@@ -74,9 +76,6 @@ function Register() {
               </Button>
             </form>
           </div>
-          <Button className="buttonLogin" colorScheme="red" mb={8}>
-            Crear cuenta
-          </Button>
           <Text fontSize="1xl" textAlign="center">
             ¿Ya tienes cuenta?
           </Text>

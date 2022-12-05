@@ -1,7 +1,7 @@
 import Login from "./routes/Login";
 import { ChakraProvider } from "@chakra-ui/react";
-import Register from "./routes/Register";
-import Home from "./routes/Home";
+import Register from "./components/Register/Register";
+import Home from "./routes/Home/Home";
 import DeleteEstate from "./components/Delete/DeleteEstate";
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
     <div>
       <ChakraProvider>
         <Home />
-        {/* <Login />
-        <Register /> */}
+        {/* <Login /> */}
+        {/* <Register /> */}
       </ChakraProvider>
     </div>
   );
