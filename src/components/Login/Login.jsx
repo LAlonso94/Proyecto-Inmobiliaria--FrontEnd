@@ -28,7 +28,7 @@ function Login() {
   const onSubmit = async (data) =>
     await loginSesion(data)
       .then(() => {
-        navigate("/api/home");
+        navigate("/");
       })
       .catch((error) => {
         alert(error);

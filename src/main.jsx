@@ -8,9 +8,11 @@ import Home from "./routes/Home/Home";
 import Detail from "./routes/Detail/Detail";
 import Admin from "./routes/Admin/Admin";
 import ErrorPage from "./routes/ErrorPage/ErrorPage";
+import Login from "./components/Login/Login";
 
 const router = createBrowserRouter([
   { name: "Home", path: "/", element: <Home />, errorElement: <ErrorPage /> },
+  { name: "Login-Registro", path: "/login", element: <Login /> },
   { name: "Detail", path: "/detalle/:id", element: <Detail /> },
   { name: "Admin", path: "/administrar", element: <Admin /> },
 ]);
