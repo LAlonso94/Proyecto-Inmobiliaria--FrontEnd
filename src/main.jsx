@@ -4,15 +4,14 @@ import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import App from "./App";
 import "./index.css";
-import Home from "./routes/Home";
-import Login from "./routes/Login";
-import Register from "./routes/Register";
+import Home from "./routes/Home/Home";
+import Detail from "./routes/Detail/Detail";
+import Admin from "./routes/Admin/Admin";
 
 const router = createBrowserRouter([
-  { name: "Landing", path: "/", element: <App /> },
-  { name: "Login", path: "/login", element: <Logi /> },
-  { name: "Registro", path: "/api/registro", element: <Register /> },
-  { name: "Home", path: "/home", element: <Home /> },
+  { name: "Home", path: "/", element: <Home /> },
+  { name: "Detail", path: "/detalle/:id", element: <Detail /> },
+  { name: "Admin", path: "/administrar", element: <Admin /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

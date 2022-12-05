@@ -1,8 +1,8 @@
 import React from "react";
 import "../Nav/Nav.css";
-import Admin from "../Admin/Admin";
 import { Button, WrapItem, Wrap } from "@chakra-ui/react";
 import Services from "../Services/Services";
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <div>
@@ -14,7 +14,9 @@ function Nav() {
             <Services />
             <Button variant="ghost">ESTUDIO</Button>
             <Button variant="ghost">CONTACTO</Button>
-            <Admin />
+            <Link to={"/administrar"}>
+              <Button variant="ghost">ADMINISTRAR</Button>
+            </Link>
           </WrapItem>
         </Wrap>
       </nav>

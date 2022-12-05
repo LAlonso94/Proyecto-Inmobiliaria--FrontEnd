@@ -1,6 +1,6 @@
 import React from "react";
 import "./Admin.css";
-import Add from "../Add/Add";
+import Add from "../../components/Add/Add";
 import {
   Menu,
   MenuButton,
