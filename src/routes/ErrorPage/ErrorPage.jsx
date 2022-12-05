@@ -1,6 +1,6 @@
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
 import { useRouteError, Link } from "react-router-dom";
-import photo from "../../assets/react.svg";
+import photo from "/404.jpg";
 
 function ErrorPage() {
   const error = useRouteError();
@@ -10,26 +10,26 @@ function ErrorPage() {
       <Text
         fontSize="1em"
         textAlign="center"
-        textShadow="0 0 20px black"
+        textShadow="0 0 20px red"
         my="10vh"
         lineHeight="1.5em"
         w="80%"
       >
-        Parece que ha ocurrido un error.
+        No se puede encontrar la página.
         <br />
         <br />
-        Intenta recargar la página o haz click en el botón para volver al menú
-        principal.
+        Intenta recargar la página o haz click en el botón para volver a la
+        página principal.
       </Text>
       <Link to={`/`}>
         <Button
           height="40px"
-          colorScheme="blue"
+          colorScheme="red"
           variant="solid"
           border="1px "
           padding="2"
         >
-          Volver al menú principal
+          Volver a la página principal
         </Button>
       </Link>
     </Flex>
