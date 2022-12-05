@@ -5,6 +5,7 @@ import Nav from "../components/Nav/Nav";
 import Header from "../components/Header/Header";
 import FormEstate from "../components/FormEstate/FormEstate";
 import Formulario from "../components/FormEstate/Formulario";
+import { Modal } from "@chakra-ui/react";
 
 function Home() {
   return (
