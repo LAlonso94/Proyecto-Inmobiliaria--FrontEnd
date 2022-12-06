@@ -23,6 +23,7 @@ function Header(props) {
     tipo: tipo,
     departamento: departamento,
   };
+  console.log(credentials);
 
   return (
     <div>

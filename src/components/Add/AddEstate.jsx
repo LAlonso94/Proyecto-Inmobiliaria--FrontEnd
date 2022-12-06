@@ -1,10 +1,9 @@
 import React from "react";
 import Rule_Estates from "../../api/Rule_Estates";
 import "../Add/Add.css";
-import FormEstate from "../FormEstate/FormEstate";
-import Formulario from "../FormEstate/Formulario";
+import FormAdd from "../FormEstate/FormAdd";
 
-function Add() {
+function AddEstate() {
   const sendForm = async (credentials) => {
     await Rule_Estates.postAdd(credentials)
       .then((response) => {
@@ -16,9 +15,9 @@ function Add() {
   };
   return (
     <div>
-      <Formulario sendForm={sendForm} />
+      <FormAdd sendForm={sendForm} />
     </div>
   );
 }
 
-export default Add;
+export default AddEstate;
