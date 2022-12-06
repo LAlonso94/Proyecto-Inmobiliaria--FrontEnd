@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
   Icon,
@@ -21,29 +21,33 @@ import {
   BsChatRightDotsFill,
   BsCheckCircleFill,
 } from "react-icons/bs";
-
+import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import { Carousel } from "react-responsive-carousel";
-import { SlideData } from "./prueba";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Rule_Estates from "../../api/Rule_Estates";
+import { useState } from "react";
 
-function Detail(props) {
-  //const { id } = useParams();
+function Detail() {
+  const { id } = useParams();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  const ImageSlider = ({ slides }) => {
-    return (
-      <Carousel infiniteLoop>
-        {slides.map((slide) => {
-          return <Image src={slide.image} height="auto" width="800px" />;
-        })}
-      </Carousel>
-    );
+  const [detail, setDetail] = useState([]);
+
+  const detailEstate = async () => {
+    const estates = await Rule_Estates.getSearchId();
+    setDetail(estates);
   };
+  console.log(detail);
+  detailEstate();
+  // const item = detail.find((item) => {
+  //   return item.InmuebleId === id;
+  // });
 
   return (
     <div>
-      <Stack ml="5em" pr="5em" gap={10}>
+      <Stack ml="5em" pr="5em" gap={6}>
         <Stack>
           <Text
             alignItems="center"
@@ -52,27 +56,38 @@ function Detail(props) {
             textAlign="center"
             color="white"
           >
+            {detail.operacion}
             OPERACION
+            {detail.tipo}
           </Text>
         </Stack>
-
-        <HStack>
-          <Box w="50%" p={4} color="white">
-            <ImageSlider slides={SlideData} />
-          </Box>
-
-          <Stack alignItems="center">
-            <Image
-              alignItems="center"
-              mt="5"
-              boxSize="100%"
-              objectFit="cover"
-              src="https://inmobiliariarossi.com.uy/image/i311660933_1803511643324454_1741263077902063853_n.jpg"
-              alt="carrousel"
-            />
-          </Stack>
-        </HStack>
-
+        <Stack pr="15em" pl="15em">
+          <Carousel>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(4).jpeg" />
+              <p className="legend">Legend 1</p>
+            </div>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/i311704147_1803511309991154_6805421820029665669_noo.jpg" />
+              <p className="legend">Legend 2</p>
+            </div>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/i309425992_1803541783321440_8836522809821014496_n.jpg" />
+              <p className="legend">Legend 3</p>
+            </div>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(3).jpeg" />
+              <p className="legend">Legend 4</p>
+            </div>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45.jpeg" />
+              <p className="legend">Legend 5</p>
+            </div>
+            <div>
+              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(2).jpeg" />
+            </div>
+          </Carousel>
+        </Stack>
         <Stack>
           <Text
             alignItems="center"
@@ -93,7 +108,7 @@ function Detail(props) {
         </Stack>
         <Stack gap={5}>
           <Text bg="red.500" fontSize="2xl" textAlign="center" color="white">
-            CARACTERISTICAS
+            CARACTERíSTICAS
           </Text>
           <HStack justifyContent="space-evenly">
             <VStack alignItems="left">
@@ -186,7 +201,10 @@ function Detail(props) {
                 <Textarea
                   variant="filled"
                   placeholder="Deje aqui su comentario:"
-                  {...register("comentarios", { required: true, minLength: 8 })}
+                  {...register("comentarios", {
+                    required: true,
+                    minLength: 8,
+                  })}
                 ></Textarea>
               </HStack>
               <Stack alignItems="flex-end">
@@ -204,6 +222,7 @@ function Detail(props) {
           </form>
         </Stack>
       </Stack>
+
       <Footer />
     </div>
   );

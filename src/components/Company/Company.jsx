@@ -26,7 +26,7 @@ function Company() {
           <Image
             boxSize="100%"
             objectFit="cover"
-            src="http://www.pensarempresa.com/wp-content/uploads/2020/07/las-piedras-1.jpeg"
+            src="../public/Rossi.jpeg"
             alt="Dan Abramov"
           />
         </Stack>
