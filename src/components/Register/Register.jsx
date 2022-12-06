@@ -15,11 +15,12 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Image,
 } from "@chakra-ui/react";
+import logo from "/public/logoRossi.png";
 
 function Register() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,15 +38,24 @@ function Register() {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>
+        <ModalContent
+          h="100vh"
+          display="flex"
+          alignItems="center"
+          bg={formBackground}
+          borderRadius={8}
+          maxW="390px"
+          maxH="750px"
+        >
+          <ModalHeader w="80%" display="flex" justifyContent="space-evenly">
+            <Image src={logo} width="12" />
             <Text fontSize="4xl" textAlign="center">
               Registrarse
             </Text>
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <div className="formContainer">
+          <ModalBody w="100%" pt="1.5em" align="center" justify="center">
+            <Flex align="center" justify="center">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <h6>Nombre:</h6>
                 <Input
@@ -53,6 +63,7 @@ function Register() {
                   type="text"
                   variant="filled"
                   required
+                  mb="4"
                   {...register("nombre", { required: true })}
                 />
                 <h6>Correo electronico:</h6>
@@ -60,6 +71,7 @@ function Register() {
                   placeholder="E-mail"
                   type="email"
                   required
+                  mb="4"
                   {...register("email", { required: true, minLength: 8 })}
                 />
 
@@ -71,6 +83,7 @@ function Register() {
                   minLength="8"
                   maxLength="20"
                   required
+                  mb="4"
                   {...register("password", { required: true, minLength: 8 })}
                 />
                 <Button
@@ -82,7 +95,7 @@ function Register() {
                   Crear cuenta
                 </Button>
               </form>
-            </div>
+            </Flex>
             <Text fontSize="1xl" textAlign="center">
               ¿Ya tienes cuenta?
             </Text>
@@ -93,8 +106,13 @@ function Register() {
             >
               Iniciar sesión
             </Button>
-            <FormControl display="flex" justifyContent="center">
-              <Text htmlFor="dark_mode" fontSize="1xl" textAlign="center">
+            <FormControl display="flex" justifyContent="center" mt="8">
+              <Text
+                htmlFor="dark_mode"
+                fontSize="1xl"
+                textAlign="center"
+                mr="2"
+              >
                 Modo oscuro
               </Text>
               <Switch
@@ -104,13 +122,6 @@ function Register() {
               />
             </FormControl>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

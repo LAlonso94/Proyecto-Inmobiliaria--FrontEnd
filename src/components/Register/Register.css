@@ -2,20 +2,3 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-.container {
-  display: flex;
-}
-
-.logo {
-  align-self: center;
-}
-
-.formContainer {
-  width: 50%;
-  align-self: center;
-  padding-top: 1.5em;
-}
-.buttonLogin {
-  display: flex;
-  align-self: center;
-}
