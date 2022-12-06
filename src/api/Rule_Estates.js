@@ -23,7 +23,7 @@ const Rule_Estates = {
   },
   getFilterEstates: async (credentials) => {
     const url = "/api/inmuebles/filtro";
-    return await API.get(url, credentials)
+    return await API.post(url, credentials)
       .then((response) => {
         return response.data;
       })
