@@ -72,12 +72,11 @@ function FormAdd(props) {
             display="flex"
             mb="1em"
             h="3em"
-            {...register("dormitorios")}
           >
             <FormLabel h="100%" w="30%">
               Dormitorios
             </FormLabel>
-            <NumberInput w="70%">
+            <NumberInput w="70%" {...register("dormitorios")}>
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -92,12 +91,11 @@ function FormAdd(props) {
             display="flex"
             mb="1em"
             h="3em"
-            {...register("baños")}
           >
             <FormLabel h="100%" w="30%">
               Baños
             </FormLabel>
-            <NumberInput w="70%">
+            <NumberInput w="70%" {...register("baños")}>
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -153,26 +151,18 @@ function FormAdd(props) {
               {...register("descripcion")}
             />
           </Flex>
-          <NumberInput
-            defaultValue={80000}
-            min={1}
-            max={5000000}
-            display="flex"
-            mb="1em"
-            h="3em"
-            {...register("precio")}
-          >
-            <FormLabel h="100%" w="30%">
-              Precio (USD)
+          <Flex h="3em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Precio
             </FormLabel>
-            <NumberInput w="70%">
-              <NumberInputField h="100%" />
-              <NumberInputStepper h="100%">
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-          </NumberInput>
+            <Input
+              w="70%"
+              variant="outline"
+              placeholder="USD 90.000"
+              mb="1em"
+              {...register("precio")}
+            />
+          </Flex>
           <Flex h="3em" mb="1em">
             <FormLabel h="100%" w="30%">
               Garage
