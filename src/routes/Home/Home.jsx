@@ -16,7 +16,7 @@ function Home() {
     const estates = await Rule_Estates.getEstates();
     setList(estates);
   };
-  const search = (x) => {
+  /*  const search = (x) => {
     if (x !== "") {
       const filterEstate = [...list].filter((item) => {
         if (
@@ -32,7 +32,7 @@ function Home() {
       //Cambio el estado del array de dependecias del useEffect para que se ejecute el fetch nuevamente.
       setReset(!reset);
     }
-  };
+  }; */
   useEffect(() => {
     showEstates();
   }, [reset]);
