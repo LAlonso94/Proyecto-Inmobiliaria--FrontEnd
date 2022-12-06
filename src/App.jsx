@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Login from "./components/Login/Login";
+import Detail from "./routes/Detail/Detail";
 import Home from "./routes/Home/Home";
 
 function App() {
@@ -7,8 +7,7 @@ function App() {
     <div>
       <ChakraProvider>
         <Home />
-        {/* <Login /> */}
-        {/* <Register /> */}
+        <Detail />
       </ChakraProvider>
     </div>
   );
