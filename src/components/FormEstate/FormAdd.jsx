@@ -15,7 +15,7 @@ import {
 import { useForm } from "react-hook-form";
 import "../FormEstate/Formulario.css";
 
-function Formulario(props) {
+function FormAdd(props) {
   const {
     register,
     handleSubmit,
@@ -245,4 +245,4 @@ function Formulario(props) {
     </>
   );
 }
-export default Formulario;
+export default FormAdd;

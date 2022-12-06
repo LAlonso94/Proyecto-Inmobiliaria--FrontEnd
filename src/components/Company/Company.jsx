@@ -6,7 +6,7 @@ function Company() {
   return (
     <div className="companyText">
       <Stack m="3em" direction="row" spacing={10} w=" 90em ">
-        <Stack>
+        <Stack className="section1">
           <Text textAlign="center" fontSize="4xl" as="b">
             LA EMPRESA
           </Text>
@@ -24,6 +24,7 @@ function Company() {
             proyectos de inversión, fraccionamientos y construcción.
           </Text>
           <Image
+            className="imageCompany"
             boxSize="100%"
             objectFit="cover"
             src="../public/Rossi.jpeg"

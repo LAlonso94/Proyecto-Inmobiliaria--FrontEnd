@@ -1,4 +1,5 @@
 import React from "react";
+import "../Detail/detail.css";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
@@ -9,10 +10,7 @@ import {
   Button,
   Textarea,
   HStack,
-  Flex,
-  Image,
   VStack,
-  Box,
 } from "@chakra-ui/react";
 import {
   BsTelephoneFill,
@@ -21,12 +19,13 @@ import {
   BsChatRightDotsFill,
   BsCheckCircleFill,
 } from "react-icons/bs";
-import Nav from "../../components/Nav/Nav";
+
 import Footer from "../../components/Footer/Footer";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Rule_Estates from "../../api/Rule_Estates";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Detail() {
   const { id } = useParams();
@@ -35,15 +34,20 @@ function Detail() {
 
   const [detail, setDetail] = useState([]);
 
-  const detailEstate = async () => {
-    const estates = await Rule_Estates.getSearchId();
-    setDetail(estates);
+  const detailEstate = async (id) => {
+    await Rule_Estates.getSearchId(id)
+      .then((result) => {
+        setDetail(result);
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-  console.log(detail);
-  detailEstate();
-  // const item = detail.find((item) => {
-  //   return item.InmuebleId === id;
-  // });
+  console.log(detail, "DETALLE");
+  useEffect(() => {
+    detailEstate();
+  }, []);
 
   return (
     <div>
@@ -56,9 +60,9 @@ function Detail() {
             textAlign="center"
             color="white"
           >
-            {detail.operacion}
+            {item.operacion}
             OPERACION
-            {detail.tipo}
+            {item.tipo}
           </Text>
         </Stack>
         <Stack pr="15em" pl="15em">

@@ -1,5 +1,7 @@
-import React from "react";
-import Add from "../../components/Add/Add";
+import React, { useState } from "react";
+import Select from "../../components/Select/Select";
+import DeleteEstate from "../../components/Delete/DeleteEstate";
+
 import {
   Menu,
   MenuButton,
@@ -20,11 +22,29 @@ import {
   DeleteIcon,
   SettingsIcon,
 } from "@chakra-ui/icons";
+import EditEstate from "../../components/Edit/EditEstate";
+import SearchId from "../../components/SearchId/SearchId";
+import AddEstate from "../../components/Add/AddEstate";
 
 function Admin() {
+  const [selectObject, setSelectObject] = useState({
+    searchId: false,
+    addEstate: false,
+    editEstate: false,
+    deleteEstate: false,
+  });
+  console.log(selectObject);
   return (
     <div>
-      <Menu>
+      <Select selectObject={selectObject} setSelectObject={setSelectObject} />
+      {selectObject.searchId && <SearchId />}
+      {selectObject.addEstate && <AddEstate />}
+      {selectObject.editEstate && <EditEstate />}
+      {selectObject.deleteEstate && <DeleteEstate />}
+    </div>
+  );
+
+  /* <Menu>
         <MenuButton
           as={Button}
           aria-label="Options"
@@ -47,9 +67,7 @@ function Admin() {
             <Button colorScheme="red">Eliminar</Button>
           </MenuItem>
         </MenuList>
-      </Menu>
-    </div>
-  );
+      </Menu> */
 }
 
 export default Admin;
