@@ -36,15 +36,13 @@ function Login() {
       });
 
   return (
-    <Flex h="100vh" align="center" justify="center" minW="390px">
+    <Flex h="100vh" align="center" justify="center">
       <Flex
-        className="loginContainer"
         flexDirection="column"
         borderRadius={8}
         justify="center"
-        alignSelf="center"
+        align="center"
         w="30%"
-        p="1em"
         boxShadow="2px 4px 14px 6px #968585ab"
         bg="repeating-linear-gradient(
           -180deg,
@@ -56,18 +54,23 @@ function Login() {
         minW="390px"
         minH="750px"
       >
-        <Image className="logo" src="../logoRossi.png" alt="logo" width="36" />
+        <Image src="../logoRossi.png" alt="logo" width="36" />
 
-        <Text fontSize="4xl" textAlign="center">
+        <Text
+          fontSize="4xl"
+          align="center"
+          mb="16"
+          textShadow="0px 1px #000000"
+        >
           Bienvenido
         </Text>
-        <Box w="50%" alignSelf="center" pt="2em">
+        <Box w="50%" alignSelf="center" pt="1em">
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input
               placeholder="email"
               type="email"
               required
-              mb="1.5"
+              mb="4"
               {...register("email", { required: true, minLength: 8 })}
             />
             {errors.email && (
@@ -82,7 +85,7 @@ function Login() {
               minLength="8"
               maxLength="20"
               required
-              mb="1.5"
+              mb="4"
               {...register("password", { required: true, minLength: 8 })}
             />
             {errors.password && (
@@ -99,11 +102,15 @@ function Login() {
         <Text fontSize="1xl" textAlign="center">
           ¿No tienes cuenta?
         </Text>
-        <Button variant="link" onClick={() => navigate(<Register />)}>
-          Registrarse
-        </Button>
-        <FormControl display="flex" justifyContent="center">
-          <Text htmlFor="dark_mode" fontSize="1xl" textAlign="center">
+        <Register />
+        <FormControl display="flex" justifyContent="center" mt="16">
+          <Text
+            htmlFor="dark_mode"
+            fontSize="1xl"
+            textAlign="center"
+            mr="1.5"
+            textShadow="0px 1px #000000"
+          >
             Modo oscuro
           </Text>
           <Switch id="dark_mode" colorScheme="red" onChange={toggleColorMode} />
