@@ -1,5 +1,5 @@
 import React from "react";
-import Formulario from "../FormEstate/FormAdd";
+import FormEdit from "../FormEstate/FormEdit";
 
 function EditEstate() {
   return (
