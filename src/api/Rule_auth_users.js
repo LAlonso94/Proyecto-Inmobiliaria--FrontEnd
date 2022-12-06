@@ -12,3 +12,14 @@ export const loginSesion = async (usuario) => {
       throw error.response.data.error || "Error procesando la solicitud";
     });
 };
+
+export const isAuth = () => {
+  if (typeof window !== "undefined") {
+    const tokenChecked = localStorage.getItem("token"); //compruebo que el usuario esté autenticado
+    if (tokenChecked) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+};
