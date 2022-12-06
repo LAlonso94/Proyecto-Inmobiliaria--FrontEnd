@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../routes/Register.css";
+import "../Register/Register.css";
 import { useNavigate } from "react-router-dom";
 
 import {

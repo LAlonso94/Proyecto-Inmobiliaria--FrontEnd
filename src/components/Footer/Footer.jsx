@@ -1,6 +1,14 @@
 import React from "react";
 import "../Footer/Footer.css";
-import { Icon, Stack, Text, Input, Button, Textarea } from "@chakra-ui/react";
+import {
+  Icon,
+  Stack,
+  Text,
+  Input,
+  Button,
+  Textarea,
+  Box,
+} from "@chakra-ui/react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import {
@@ -17,6 +25,7 @@ function Footer() {
   const onSubmit = (data) => console.log(data);
   return (
     <div>
+      <Box w="100%" h="0.5em" bg="red.500" />
       <Stack justifyContent="space-between" p="3em" direction="row" bg="gray">
         <Stack>
           <Stack>

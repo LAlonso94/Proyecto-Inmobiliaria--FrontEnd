@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import "../routes/Login.css";
+import "../Login/Login.css";
 import {
   Flex,
   Input,
@@ -12,7 +12,8 @@ import {
   useColorModeValue,
   Text,
 } from "@chakra-ui/react";
-import { loginSesion } from "../api/Rule_auth_users";
+import { loginSesion } from "../../api/Rule_auth_users";
+import Register from "../Register/Register";
 
 function Login() {
   const { toggleColorMode } = useColorMode();
@@ -87,7 +88,7 @@ function Login() {
           <Text fontSize="1xl" textAlign="center">
             ¿No tienes cuenta?
           </Text>
-          <Button variant="link" onClick={() => navigate("/api/registro")}>
+          <Button variant="link" onClick={() => navigate(<Register />)}>
             Registrarse
           </Button>
           <FormControl display="flex" justifyContent="center">
