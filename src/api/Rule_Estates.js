@@ -21,6 +21,16 @@ const Rule_Estates = {
         throw error.response.data.error;
       });
   },
+  getFilterEstates: async (credentials) => {
+    const url = "/api/inmuebles/filtro";
+    return await API.get(url, credentials)
+      .then((response) => {
+        return response.data;
+      })
+      .catch((error) => {
+        throw error.response.data.error;
+      });
+  },
   postAdd: async (credentials) => {
     const url = `/api/inmuebles/nuevo`;
     return await API.post(url, credentials)
