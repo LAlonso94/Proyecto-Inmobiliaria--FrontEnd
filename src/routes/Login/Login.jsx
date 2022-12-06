@@ -14,7 +14,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { loginSesion } from "../../api/Rule_auth_users";
-import Register from "../Register/Register";
+import Register from "../../components/Register/Register";
 
 function Login() {
   const { toggleColorMode } = useColorMode();
@@ -36,13 +36,14 @@ function Login() {
       });
 
   return (
-    <Flex h="100vh" align="center" justify="center">
+    <Flex h="90vh" align="center" justify="center" mt="12">
       <Flex
         flexDirection="column"
         borderRadius={8}
         justify="center"
         align="center"
         w="30%"
+        h="100%"
         boxShadow="2px 4px 14px 6px #968585ab"
         bg="repeating-linear-gradient(
           -180deg,
