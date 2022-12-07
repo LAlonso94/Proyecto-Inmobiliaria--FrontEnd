@@ -15,7 +15,7 @@ import {
 import { useForm } from "react-hook-form";
 import "../FormEstate/Formulario.css";
 
-function FormEdit() {
+function FormEdit(props) {
   const {
     register,
     handleSubmit,
@@ -25,14 +25,13 @@ function FormEdit() {
 
   const onSubmit = (data) => {
     console.log(data);
-    props.sendForm(data);
+    props.editForm(data);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl
-          isRequired
           display="flex"
           flexDirection="column"
           w="50vw"
@@ -47,6 +46,7 @@ function FormEdit() {
               w="70%"
               variant="outline"
               mb="1em"
+              defaultValue={props.detail?.operacion}
               {...register("operacion")}
             >
               <option value="Venta">Venta</option>
@@ -72,12 +72,11 @@ function FormEdit() {
             display="flex"
             mb="1em"
             h="3em"
-            {...register("dormitorios")}
           >
             <FormLabel h="100%" w="30%">
               Dormitorios
             </FormLabel>
-            <NumberInput w="70%">
+            <NumberInput w="70%" {...register("dormitorios")}>
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -92,12 +91,11 @@ function FormEdit() {
             display="flex"
             mb="1em"
             h="3em"
-            {...register("baños")}
           >
             <FormLabel h="100%" w="30%">
               Baños
             </FormLabel>
-            <NumberInput w="70%">
+            <NumberInput w="70%" {...register("baños")}>
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -112,7 +110,7 @@ function FormEdit() {
             <Input
               w="70%"
               variant="outline"
-              placeholder="500 mt2"
+              placeholder={props.detail?.metrosTerreno}
               mb="1em"
               {...register("metrosTerreno")}
             />
@@ -238,7 +236,17 @@ function FormEdit() {
             />
           </Flex>
         </FormControl>
-        <Button m="auto" size="md" colorScheme="whatsapp" type="submit">
+        <Button
+          m="auto"
+          size="md"
+          colorScheme="whatsapp"
+          type="submit"
+          // onClick={() => {
+          //   {
+          //     props.editForm(data);
+          //   }
+          // }}
+        >
           Enviar
         </Button>
       </form>

@@ -32,10 +32,10 @@ function Detail() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
 
-  const [detail, setDetail] = useState([]);
+  const [detail, setDetail] = useState();
 
-  const detailEstate = async (id) => {
-    await Rule_Estates.getSearchId(id)
+  const detailEstate = async (estate) => {
+    await Rule_Estates.getSearchId(estate)
       .then((result) => {
         setDetail(result);
         console.log(result);
@@ -46,7 +46,7 @@ function Detail() {
   };
   console.log(detail, "DETALLE");
   useEffect(() => {
-    detailEstate();
+    detailEstate(id);
   }, []);
 
   return (
@@ -60,9 +60,9 @@ function Detail() {
             textAlign="center"
             color="white"
           >
-            {item.operacion}
+            {detail?.operacion}
             OPERACION
-            {item.tipo}
+            {detail?.tipo}
           </Text>
         </Stack>
         <Stack pr="15em" pl="15em">
