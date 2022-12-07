@@ -15,7 +15,8 @@ function Services() {
           as={Button}
           aria-label="Options"
           icon={<SettingsIcon />}
-          variant="ghost"
+          variant="solid"
+          colorScheme="red"
         >
           SERVICIOS
         </MenuButton>
