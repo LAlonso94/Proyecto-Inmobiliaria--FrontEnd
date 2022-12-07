@@ -102,7 +102,7 @@ function Register() {
             <Button
               variant="link"
               colorScheme="blue"
-              onClick={() => navigate("/api/login")}
+              onClick={() => navigate("/login")}
             >
               Iniciar sesión
             </Button>

@@ -30,11 +30,11 @@ function FormEdit(props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ margin: 10 }} onSubmit={handleSubmit(onSubmit)}>
         <FormControl
           display="flex"
           flexDirection="column"
-          w="50vw"
+          w="80vw"
           justifyContent="center"
           m="auto"
         >
@@ -57,7 +57,13 @@ function FormEdit(props) {
             <FormLabel h="100%" w="30%">
               Tipo de inmueble
             </FormLabel>
-            <Select w="70%" variant="outline" mb="1em" {...register("tipo")}>
+            <Select
+              w="70%"
+              variant="outline"
+              mb="1em"
+              defaultValue={props.detail?.tipo}
+              {...register("tipo")}
+            >
               <option value="Casa">Casa</option>
               <option value="Apartamento">Apartamento</option>
               <option value="Local comercial">Local comercial</option>
@@ -66,7 +72,7 @@ function FormEdit(props) {
             </Select>
           </Flex>
           <NumberInput
-            defaultValue={2}
+            defaultValue={1}
             min={1}
             max={20}
             display="flex"
@@ -76,7 +82,11 @@ function FormEdit(props) {
             <FormLabel h="100%" w="30%">
               Dormitorios
             </FormLabel>
-            <NumberInput w="70%" {...register("dormitorios")}>
+            <NumberInput
+              w="70%"
+              defaultValue={props.detail?.dormitorios}
+              {...register("dormitorios")}
+            >
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -95,7 +105,11 @@ function FormEdit(props) {
             <FormLabel h="100%" w="30%">
               Baños
             </FormLabel>
-            <NumberInput w="70%" {...register("baños")}>
+            <NumberInput
+              w="70%"
+              defaultValue={props.detail?.baños}
+              {...register("baños")}
+            >
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -110,7 +124,7 @@ function FormEdit(props) {
             <Input
               w="70%"
               variant="outline"
-              placeholder={props.detail?.metrosTerreno}
+              defaultValue={props.detail?.metrosTerreno}
               mb="1em"
               {...register("metrosTerreno")}
             />
@@ -122,7 +136,7 @@ function FormEdit(props) {
             <Input
               w="70%"
               variant="outline"
-              placeholder="70 mt2"
+              defaultValue={props.detail?.metrosEdificados}
               mb="1em"
               {...register("metrosEdificados")}
             />
@@ -135,7 +149,7 @@ function FormEdit(props) {
               w="70%"
               h="100%"
               mb="1em"
-              placeholder="Muy buena ubicacion. Garantia ANDA, CGN, etc."
+              defaultValue={props.detail?.observaciones}
               {...register("observaciones")}
             />
           </Flex>
@@ -147,23 +161,19 @@ function FormEdit(props) {
               w="70%"
               h="100%"
               mb="1em"
-              placeholder="Complejo habitacional. Servicios de luz y agua, etc."
+              defaultValue={props.detail?.descripcion}
               {...register("descripcion")}
             />
           </Flex>
-          <NumberInput
-            defaultValue={80000}
-            min={1}
-            max={5000000}
-            display="flex"
-            mb="1em"
-            h="3em"
-            {...register("precio")}
-          >
+          <NumberInput min={1} max={5000000} display="flex" mb="1em" h="3em">
             <FormLabel h="100%" w="30%">
-              Precio (USD)
+              Precio
             </FormLabel>
-            <NumberInput w="70%">
+            <NumberInput
+              w="70%"
+              defaultValue={props.detail?.precio}
+              {...register("precio")}
+            >
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -175,7 +185,13 @@ function FormEdit(props) {
             <FormLabel h="100%" w="30%">
               Garage
             </FormLabel>
-            <Select w="70%" variant="outline" mb="1em" {...register("garage")}>
+            <Select
+              w="70%"
+              variant="outline"
+              mb="1em"
+              defaultValue={props.detail?.garage}
+              {...register("garage")}
+            >
               <option value="No">No</option>
               <option value="Si">Si</option>
             </Select>
@@ -185,6 +201,7 @@ function FormEdit(props) {
               Departamento
             </FormLabel>
             <Select
+              defaultValue={props.detail?.departamento}
               w="70%"
               variant="outline"
               mb="1em"
@@ -218,7 +235,7 @@ function FormEdit(props) {
             <Input
               w="70%"
               variant="outline"
-              placeholder="Pocitos - Carrasco - Las Piedas - Punta del Este"
+              defaultValue={props.detail?.zona}
               mb="1em"
               {...register("zona")}
             />
@@ -230,23 +247,13 @@ function FormEdit(props) {
             <Input
               w="70%"
               variant="outline"
-              placeholder="Paysandú 63, esq. 18 de Julio"
+              defaultValue={props.detail?.domicilio}
               mb="1em"
               {...register("domicilio")}
             />
           </Flex>
         </FormControl>
-        <Button
-          m="auto"
-          size="md"
-          colorScheme="whatsapp"
-          type="submit"
-          // onClick={() => {
-          //   {
-          //     props.editForm(data);
-          //   }
-          // }}
-        >
+        <Button m="auto" size="md" colorScheme="yellow" type="submit">
           Enviar
         </Button>
       </form>

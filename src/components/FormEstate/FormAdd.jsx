@@ -30,12 +30,12 @@ function FormAdd(props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ margin: 10 }} onSubmit={handleSubmit(onSubmit)}>
         <FormControl
           isRequired
           display="flex"
           flexDirection="column"
-          w="50vw"
+          w="80vw"
           justifyContent="center"
           m="auto"
         >
@@ -228,7 +228,7 @@ function FormAdd(props) {
             />
           </Flex>
         </FormControl>
-        <Button m="auto" size="md" colorScheme="whatsapp" type="submit">
+        <Button m="auto" size="md" colorScheme="yellow" type="submit">
           Enviar
         </Button>
       </form>

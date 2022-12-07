@@ -14,7 +14,7 @@ function ShowAll() {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: 20 }}>
       <EstatesMap list={list} />
     </div>
   );
