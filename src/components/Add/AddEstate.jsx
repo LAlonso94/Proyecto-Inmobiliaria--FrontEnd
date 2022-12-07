@@ -2,6 +2,7 @@ import React from "react";
 import Rule_Estates from "../../api/Rule_Estates";
 import "../Add/Add.css";
 import FormAdd from "../FormEstate/FormAdd";
+import Prueba from "../FormEstate/prueba";
 
 function AddEstate() {
   const sendForm = async (credentials) => {
@@ -15,7 +16,8 @@ function AddEstate() {
   };
   return (
     <div>
-      <FormAdd sendForm={sendForm} />
+      {/*       <FormAdd sendForm={sendForm} /> */}
+      <Prueba sendForm={sendForm} />
     </div>
   );
 }
