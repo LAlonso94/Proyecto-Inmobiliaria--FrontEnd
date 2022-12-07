@@ -38,13 +38,11 @@ function Detail() {
     await Rule_Estates.getSearchId(estate)
       .then((result) => {
         setDetail(result);
-        console.log(result);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  console.log(detail, "DETALLE");
   useEffect(() => {
     detailEstate(id);
   }, []);
