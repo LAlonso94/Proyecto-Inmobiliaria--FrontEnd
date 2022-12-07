@@ -16,13 +16,12 @@ function select(props) {
     //   [e.target.value]: !props.selectObject[e.target.value],
     // });
     props.setSelectObject(nuevoObj);
-    console.log(e);
   };
   return (
     <form>
       <label for="">Elije la acción:</label>
       <select name="" onChange={handleSelect}>
-        <option value="searchId">Buscar por Id</option>
+        <option value="showAll">Mostrar todos</option>
         <option value="addEstate">Agregar</option>
         <option value="editEstate">Editar</option>
         <option value="deleteEstate">Eliminar</option>
