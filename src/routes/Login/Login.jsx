@@ -54,7 +54,7 @@ function Login() {
           #e31e24 82%
         )"
           minW="390px"
-          minH="750px"
+          minH="600px"
         >
           <Image src="../logoRossi.png" alt="logo" width="36" />
 
@@ -106,22 +106,6 @@ function Login() {
             ¿No tienes cuenta?
           </Text>
           <Register />
-          <FormControl display="flex" justifyContent="center" mt="16">
-            <Text
-              htmlFor="dark_mode"
-              fontSize="1xl"
-              textAlign="center"
-              mr="1.5"
-              textShadow="0px 1px #000000"
-            >
-              Modo oscuro
-            </Text>
-            <Switch
-              id="dark_mode"
-              colorScheme="red"
-              onChange={toggleColorMode}
-            />
-          </FormControl>
         </Flex>
       </Flex>
     </div>

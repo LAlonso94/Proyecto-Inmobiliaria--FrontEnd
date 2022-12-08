@@ -1,5 +1,6 @@
 import React from "react";
-import "../Footer/Footer.css";
+import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
+import { useForm } from "react-hook-form";
 import {
   Icon,
   Stack,
@@ -9,8 +10,6 @@ import {
   Textarea,
   Box,
 } from "@chakra-ui/react";
-import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
-import { useForm } from "react-hook-form";
 import {
   BsTelephoneFill,
   BsFillEnvelopeFill,
@@ -23,36 +22,59 @@ import {
 function Footer() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
+
   return (
     <div className="container">
       <Box w="100%" h="0.5em" bg="red.500" />
-      <Stack justifyContent="space-between" p="1.5em" direction="row" bg="gray">
-        {/* <Stack p="1.5em" bg="gray"> */}
+      <Stack
+        justifyContent="space-between"
+        p="1.5em"
+        direction={{ base: "column", lg: "row" }}
+        bg="gray"
+      >
         <Stack>
           <Stack>
-            <Text color="white" fontSize="3xl" as="b">
+            <Text color="white" fontSize={{ base: "lg", lg: "3xl" }} as="b">
               Contacto
             </Text>
           </Stack>
-          <Stack color="white" w=" 20em " direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            w=" 20em "
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsHouseFill} />
             <Text> Rivera 641 Las Piedras-Canelones, Uruguay</Text>
           </Stack>
-          <Stack color="white" direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsFillEnvelopeFill} />
             <Text>contacto@inmobiliariarossi.com.uy</Text>
           </Stack>
-          <Stack color="white" direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsTelephoneFill} />
             <Text> 23656520</Text>
           </Stack>
 
-          <Stack color="white" w=" 20em " direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            w=" 20em "
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsFillPeopleFill} />
             <Text>Atención al público: lunes a jueves 14:30hs a 18hs</Text>
           </Stack>
         </Stack>
-        <Stack>
+        <Stack display={{ base: "none", lg: "inline" }}>
           <iframe
             className="maps"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1639.5425558933127!2d-56.216805848023995!3d-34.72824895732258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x848e17c49b5997e6!2sInmobiliaria%20Rossi%20-%20Estudio%20Integral%20Rossi!5e0!3m2!1ses-419!2suy!4v1670100367298!5m2!1ses-419!2suy"
@@ -79,7 +101,7 @@ function Footer() {
             </Stack>
           </Stack>
           <Stack>
-            <Text as="b" color="white">
+            <Text fontSize={{ base: "small", lg: "sm" }} as="b" color="white">
               Comentarios y/o sugerencias:
             </Text>
 

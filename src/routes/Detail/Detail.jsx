@@ -1,5 +1,11 @@
 import React from "react";
-import "../Detail/detail.css";
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Rule_Estates from "../../api/Rule_Estates";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
@@ -18,20 +24,13 @@ import {
   BsFillPeopleFill,
   BsChatRightDotsFill,
   BsCheckCircleFill,
+  BsHouseFill,
 } from "react-icons/bs";
-
-import Footer from "../../components/Footer/Footer";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Rule_Estates from "../../api/Rule_Estates";
-import { useState } from "react";
-import { useEffect } from "react";
 
 function Detail() {
   const { id } = useParams();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
-
   const [detail, setDetail] = useState();
 
   const detailEstate = async (estate) => {
@@ -49,7 +48,8 @@ function Detail() {
 
   return (
     <div>
-      <Stack ml="5em" pr="5em" gap={6}>
+      <Nav />
+      <Stack w="auto" gap={6}>
         <Stack>
           <Text
             alignItems="center"
@@ -57,33 +57,51 @@ function Detail() {
             fontSize="2xl"
             textAlign="center"
             color="white"
-          >
-            {detail?.operacion}
-            OPERACION
-            {detail?.tipo}
-          </Text>
+          ></Text>
         </Stack>
-        <Stack pr="15em" pl="15em">
+        <Stack>
+          <VStack
+            pos="absolute"
+            zIndex="100"
+            color="white"
+            h="auto"
+            w="auto"
+            bg="red.500"
+            alignItems="flex-start"
+            p="0.5em"
+            borderRadius="0.5em"
+          >
+            <HStack>
+              <Icon boxSize="2em" as={BsHouseFill} />
+              <Text
+                textTransform="uppercase"
+                fontSize={{ base: "1xl", lg: "2xl" }}
+              >
+                {detail?.operacion}
+              </Text>
+            </HStack>
+            <Text
+              textTransform="uppercase"
+              fontSize={{ base: "1xl", lg: "3xl" }}
+            >
+              {detail?.precio}
+            </Text>
+          </VStack>
           <Carousel>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(4).jpeg" />
-              <p className="legend">Legend 1</p>
             </div>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/i311704147_1803511309991154_6805421820029665669_noo.jpg" />
-              <p className="legend">Legend 2</p>
             </div>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/i309425992_1803541783321440_8836522809821014496_n.jpg" />
-              <p className="legend">Legend 3</p>
             </div>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(3).jpeg" />
-              <p className="legend">Legend 4</p>
             </div>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45.jpeg" />
-              <p className="legend">Legend 5</p>
             </div>
             <div>
               <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(2).jpeg" />
@@ -100,58 +118,54 @@ function Detail() {
           >
             DESCRIPCIÓN
           </Text>
-        </Stack>
-        <Stack pr="9em" pl="9em">
-          <Text textAlign="center">
-            Complejo habitacional Casa número 4.- Comodidades: 1 dormitorio,
-            cocina-comedor integrada y baño y "patio frente".- Servicios de luz
-            y agua corriente independientes.
-          </Text>
+          <Stack textAlign={{ base: "center", lg: "center" }}>
+            <Text
+              pl={{ base: "1em", lg: "10em" }}
+              pr={{ base: "1em", lg: "10em" }}
+              textAlign={{ base: "center", lg: "center" }}
+            >
+              {detail?.descripcion}
+            </Text>
+          </Stack>
         </Stack>
         <Stack gap={5}>
           <Text bg="red.500" fontSize="2xl" textAlign="center" color="white">
             CARACTERíSTICAS
           </Text>
-          <HStack justifyContent="space-evenly">
-            <VStack alignItems="left">
-              <HStack>
+          <HStack
+            justifyContent="center"
+            alignItems="start"
+            gap={{ lg: "3em" }}
+          >
+            <Stack h="50%" alignItems="left">
+              <HStack h="30%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Garantía: ANDA, CGN, y/o PORTO SEGUROS.</Text>
+                <Text>Operación: {detail?.operacion}</Text>
               </HStack>
-              <HStack>
+              <HStack h="30%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Garage: Si</Text>
+                <Text>Superficie Edificada: {detail?.metrosEdificados}</Text>
               </HStack>
-
-              <HStack>
+              <HStack h="30%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Dormitorios:1</Text>
+                <Text>Superficie Del Terreno: {detail?.metrosTerreno}</Text>
               </HStack>
-            </VStack>
-            <VStack alignItems="left">
-              <HStack>
+            </Stack>
+            <Stack justifyContent="center" h="50%" alignItems="left">
+              <HStack h="15%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Baños:1</Text>
+                <Text>Dormitorios: {detail?.dormitorios}</Text>
               </HStack>
-              <HStack>
+              <HStack h="15%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Comedor:Si</Text>
+                <Text>Baños: {detail?.baños}</Text>
               </HStack>
-              <HStack>
+              <HStack h="15%">
                 <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Cocina: Si</Text>
+                <Text>Garage: {detail?.garage}</Text>
               </HStack>
-            </VStack>
-            <VStack alignItems="left">
-              <HStack>
-                <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Superficie Edificada: 55m2</Text>
-              </HStack>
-              <HStack>
-                <Icon color="red.500" boxSize="1em" as={BsCheckCircleFill} />
-                <Text>Superficie Del Terreno: 45m2</Text>
-              </HStack>
-            </VStack>
+            </Stack>
+            <Stack alignItems="left"></Stack>
           </HStack>
         </Stack>
         <Stack gap={3}>
@@ -161,9 +175,9 @@ function Detail() {
             </Text>
           </Stack>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Stack gap={3}>
-              <HStack w=" 63em ">
+          <form className="formDetail" onSubmit={handleSubmit(onSubmit)}>
+            <Stack w={{ base: "20em", lg: "60em" }} gap={3}>
+              <HStack w=" 100% ">
                 <Icon color="red.500" boxSize="1.5em" as={BsFillPeopleFill} />
                 <Input
                   placeholder="Nombre y apellido"
@@ -172,7 +186,7 @@ function Detail() {
                   required
                 />
               </HStack>
-              <HStack w=" 63em ">
+              <HStack w=" 100% ">
                 <Icon color="red.500" boxSize="1.5em" as={BsFillEnvelopeFill} />
                 <Input
                   m={2}
@@ -183,7 +197,7 @@ function Detail() {
                   {...register("email", { required: true, minLength: 8 })}
                 />
               </HStack>
-              <HStack w=" 63em ">
+              <HStack w=" 100% ">
                 <Icon color="red.500" boxSize="1.5em" as={BsTelephoneFill} />
                 <Input
                   placeholder="Telefono"
@@ -194,7 +208,7 @@ function Detail() {
                   {...register("tel", { required: true, minLength: 8 })}
                 />
               </HStack>
-              <HStack w=" 63em ">
+              <HStack w=" 100% ">
                 <Icon
                   color="red.500"
                   boxSize="1.5em"
@@ -224,7 +238,6 @@ function Detail() {
           </form>
         </Stack>
       </Stack>
-
       <Footer />
     </div>
   );

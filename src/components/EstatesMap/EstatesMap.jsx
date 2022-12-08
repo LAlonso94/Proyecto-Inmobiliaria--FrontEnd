@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Stack,
@@ -11,10 +10,8 @@ import {
   Divider,
   Image,
   Badge,
-  Box,
   Flex,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
 function EstatesMap(props) {
   return (
@@ -23,7 +20,13 @@ function EstatesMap(props) {
         <Link to={`/detalle/${item.inmuebleId}`}>
           <Card maxW="sm">
             <CardBody>
-              <Badge variant="subtle" colorScheme="red">
+              <Badge
+                pos="absolute"
+                zIndex="100"
+                fontSize="lg"
+                variant="solid"
+                bg="red.500"
+              >
                 {item.operacion}
               </Badge>
               <Image
@@ -34,8 +37,10 @@ function EstatesMap(props) {
               <Stack mt="6" spacing="3">
                 <Divider />
                 <Flex align="center" justify="space-between">
-                  <Heading size="md">{item.tipo}</Heading>
-                  <Text fontSize="md">
+                  <Heading textTransform="uppercase" color="red.500" size="md">
+                    {item.tipo}
+                  </Heading>
+                  <Text textTransform="uppercase" color="red.500" fontSize="md">
                     <b>{item.zona}</b>
                   </Text>
                 </Flex>
@@ -43,7 +48,7 @@ function EstatesMap(props) {
               </Stack>
             </CardBody>
             <CardFooter>
-              <Text color="#F56565" fontSize="2xl">
+              <Text color="red.500" fontSize="2xl">
                 <b>{item.precio}</b>
               </Text>
             </CardFooter>

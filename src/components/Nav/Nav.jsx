@@ -1,33 +1,123 @@
-import React, { useEffect, useState } from "react";
-import "../Nav/Nav.css";
-import { Button, WrapItem, Wrap } from "@chakra-ui/react";
+import { BsListUl } from "react-icons/bs";
 import Services from "../Services/Services";
 import { Link } from "react-router-dom";
 import { isAuth } from "../../api/Rule_auth_users";
+import {
+  Button,
+  WrapItem,
+  Wrap,
+  HStack,
+  Image,
+  Box,
+  Menu,
+  MenuButton,
+  MenuList,
+  IconButton,
+  Flex,
+} from "@chakra-ui/react";
 
 function Nav() {
   return (
     <div>
-      <nav className="nav">
-        <Wrap spacing={4}>
-          <WrapItem>
-            <Button variant="ghost">INICIO</Button>
-            <Button variant="ghost">EMPRESA</Button>
-            <Services />
-            <Button variant="ghost">ESTUDIO</Button>
-            <Button variant="ghost">CONTACTO</Button>
+      <Box h="0.5em" bg="red.500" />
+      <Flex display={["none", "none", "flex", "flex"]}>
+        <HStack bg="white" color="white">
+          <Image bg="white" src="../logoRossi.png" alt="logo" width="36" />
+
+          <Wrap>
+            <WrapItem gap="1em">
+              <Button colorScheme="red" variant="solid">
+                INICIO
+              </Button>
+              <Button colorScheme="red" variant="solid">
+                EMPRESA
+              </Button>
+
+              <Button colorScheme="red" variant="solid">
+                ESTUDIO
+              </Button>
+              <Button colorScheme="red" variant="solid">
+                CONTACTO
+              </Button>
+              {isAuth() ? (
+                <Link to={"/administrar"}>
+                  <Button colorScheme="red" variant="solid">
+                    ADMINISTRAR
+                  </Button>
+                </Link>
+              ) : (
+                <Link to={"/login"}>
+                  <Button colorScheme="red" variant="solid">
+                    LOGIN
+                  </Button>
+                </Link>
+              )}
+            </WrapItem>
+          </Wrap>
+        </HStack>
+      </Flex>
+
+      <Flex
+        justifyContent="space-between"
+        display={["flex", "flex", "none", "none"]}
+        pl="1em"
+        pr="1em"
+      >
+        <Image
+          bg="white"
+          src="../logoRossi.png"
+          alt="logo"
+          h="auto"
+          width="5em"
+        />
+        <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label="Options"
+            icon={<BsListUl />}
+            boxSize="5em"
+            variant="outline"
+            color="red"
+          />
+
+          <MenuList
+            alignItems="center"
+            gap={1}
+            display="flex"
+            flexDirection="column"
+          >
+            <Button w="10em" colorScheme="red" variant="solid">
+              INICIO
+            </Button>
+            <Button w="10em" colorScheme="red" variant="solid">
+              EMPRESA
+            </Button>
+            <Button w="10em" colorScheme="red" variant="solid">
+              SERVICIOS
+            </Button>
+            <Button w="10em" colorScheme="red" variant="solid">
+              ESTUDIO
+            </Button>
+            <Button w="10em" colorScheme="red" variant="solid">
+              CONTACTO
+            </Button>
             {isAuth() ? (
               <Link to={"/administrar"}>
-                <Button variant="ghost">ADMINISTRAR</Button>
+                <Button colorScheme="red" variant="solid">
+                  ADMINISTRAR
+                </Button>
               </Link>
             ) : (
               <Link to={"/login"}>
-                <Button variant="ghost">LOGIN</Button>
+                <Button w="10em" colorScheme="red" variant="solid">
+                  LOGIN
+                </Button>
               </Link>
             )}
-          </WrapItem>
-        </Wrap>
-      </nav>
+          </MenuList>
+        </Menu>
+      </Flex>
+      <Box w="100%" h="0.5em" bg="red.500" />
     </div>
   );
 }
