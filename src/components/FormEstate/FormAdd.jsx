@@ -253,7 +253,7 @@ function FormAdd(props) {
             </FormLabel>
             <Input
               w="70%"
-              variant="outline"
+              //variant="outline"
               type="file"
               mb="1em"
               {...register("file")}
