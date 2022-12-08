@@ -87,6 +87,7 @@ function FormEdit(props) {
               defaultValue={props.detail?.dormitorios}
               {...register("dormitorios")}
             >
+              {console.log(props.detail)}
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -165,22 +166,18 @@ function FormEdit(props) {
               {...register("descripcion")}
             />
           </Flex>
-          <NumberInput min={1} max={5000000} display="flex" mb="1em" h="3em">
-            <FormLabel h="100%" w="30%">
+          <Flex h="3em" mb="1em">
+            <FormLabel w="30%" h="100%">
               Precio
             </FormLabel>
-            <NumberInput
+            <Input
               w="70%"
+              variant="outline"
               defaultValue={props.detail?.precio}
+              mb="1em"
               {...register("precio")}
-            >
-              <NumberInputField h="100%" />
-              <NumberInputStepper h="100%">
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-          </NumberInput>
+            />
+          </Flex>
           <Flex h="3em" mb="1em">
             <FormLabel h="100%" w="30%">
               Garage
