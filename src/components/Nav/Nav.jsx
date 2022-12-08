@@ -16,38 +16,55 @@ import {
 } from "@chakra-ui/react";
 
 function Nav() {
+  const logOut = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <div>
       <Box h="0.5em" bg="red.500" />
       <Flex justifyContent="center" display={["none", "none", "flex", "flex"]}>
-        <HStack gap="25em" bg="white" color="white">
+        <HStack gap="4em" bg="white" color="white">
           <Image bg="white" src="../logoRossi.png" alt="logo" width="36" />
 
           <Wrap>
             <WrapItem gap="1em">
-              <Button colorScheme="red" variant="solid">
+              <Button w="9em" colorScheme="red" variant="solid">
                 INICIO
               </Button>
 
-              <Button colorScheme="red" variant="solid">
+              <Button w="9em" colorScheme="red" variant="solid">
                 EMPRESA
               </Button>
-
-              <Button colorScheme="red" variant="solid">
+              <Button w="9em" colorScheme="red" variant="solid">
+                SERVICIOS
+              </Button>
+              <Button w="9em" colorScheme="red" variant="solid">
                 ESTUDIO
               </Button>
-              <Button colorScheme="red" variant="solid">
+              <Button w="9em" colorScheme="red" variant="solid">
                 CONTACTO
               </Button>
               {isAuth() ? (
-                <Link to={"/administrar"}>
-                  <Button colorScheme="red" variant="solid">
-                    ADMINISTRAR
+                <>
+                  <Link to={"/administrar"}>
+                    <Button w="9em" colorScheme="red" variant="solid">
+                      ADMINISTRAR
+                    </Button>
+                  </Link>
+                  <Button
+                    w="9em"
+                    colorScheme="red"
+                    variant="solid"
+                    onClick={logOut}
+                  >
+                    CERRAR SESION
                   </Button>
-                </Link>
+                </>
               ) : (
                 <Link to={"/login"}>
-                  <Button colorScheme="red" variant="solid">
+                  <Button w="9em" colorScheme="red" variant="solid">
                     LOGIN
                   </Button>
                 </Link>
@@ -102,11 +119,21 @@ function Nav() {
               CONTACTO
             </Button>
             {isAuth() ? (
-              <Link to={"/administrar"}>
-                <Button colorScheme="red" variant="solid">
-                  ADMINISTRAR
+              <>
+                <Link to={"/administrar"}>
+                  <Button w="10em" colorScheme="red" variant="solid">
+                    ADMINISTRAR
+                  </Button>
+                </Link>
+                <Button
+                  w="10em"
+                  colorScheme="red"
+                  variant="solid"
+                  onClick={logOut}
+                >
+                  CERRAR SESION
                 </Button>
-              </Link>
+              </>
             ) : (
               <Link to={"/login"}>
                 <Button w="10em" colorScheme="red" variant="solid">
