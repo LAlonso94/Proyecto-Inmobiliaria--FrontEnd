@@ -1,10 +1,11 @@
 import React from "react";
-import { Stack, Text, Image } from "@chakra-ui/react";
+import { Stack, Text, Image, Box } from "@chakra-ui/react";
 import "../Company/Company.css";
 
 function Company() {
   return (
-    <div className="companyText">
+    <div>
+      <Box w="100%" h="0.5em" bg="red.500" />
       <Stack m="3em" direction="row" spacing={10} w=" 90em ">
         <Stack className="section1">
           <Text textAlign="center" fontSize="4xl" as="b">

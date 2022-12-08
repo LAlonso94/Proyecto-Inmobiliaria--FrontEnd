@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Header/Header.css";
 import { SearchIcon } from "@chakra-ui/icons";
-import { Menu, Stack, Text, Select, IconButton } from "@chakra-ui/react";
+import { Menu, Stack, Text, Select, IconButton, Box } from "@chakra-ui/react";
 
 function Header(props) {
   const [operacion, setOperacion] = useState("");
@@ -81,7 +81,7 @@ function Header(props) {
           </Menu>
         </Stack>
       </header>
-      <hr className="hr"></hr>
+      <Box w="100%" h="0.5em" bg="red.500" />
     </div>
   );
 }

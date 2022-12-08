@@ -1,5 +1,5 @@
 import React from "react";
-import "../Footer/Footer.css";
+
 import {
   Icon,
   Stack,
@@ -26,7 +26,12 @@ function Footer() {
   return (
     <div className="container">
       <Box w="100%" h="0.5em" bg="red.500" />
-      <Stack justifyContent="space-between" p="1.5em" direction="row" bg="gray">
+      <Stack
+        justifyContent="space-between"
+        p="1.5em"
+        direction={{ base: "column", lg: "row" }}
+        bg="gray"
+      >
         {/* <Stack p="1.5em" bg="gray"> */}
         <Stack>
           <Stack>
@@ -52,7 +57,7 @@ function Footer() {
             <Text>Atención al público: lunes a jueves 14:30hs a 18hs</Text>
           </Stack>
         </Stack>
-        <Stack>
+        <Stack display={{ base: "none", lg: "inline" }}>
           <iframe
             className="maps"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1639.5425558933127!2d-56.216805848023995!3d-34.72824895732258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x848e17c49b5997e6!2sInmobiliaria%20Rossi%20-%20Estudio%20Integral%20Rossi!5e0!3m2!1ses-419!2suy!4v1670100367298!5m2!1ses-419!2suy"
