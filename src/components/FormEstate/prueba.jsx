@@ -15,29 +15,20 @@ import {
 import { useForm } from "react-hook-form";
 import "../FormEstate/Formulario.css";
 
-function FormAdd(props) {
+function Prueba(props) {
   const {
     register,
     handleSubmit,
-
+    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     const formData = new FormData();
     formData.append("operacion", data.operacion);
     formData.append("tipo", data.tipo);
-    formData.append("dormitorios", data.dormitorios);
-    formData.append("baños", data.baños);
-    formData.append("metrosTerreno", data.metrosTerreno);
-    formData.append("metrosEdificados", data.metrosEdificados);
-    formData.append("observaciones", data.observaciones);
-    formData.append("descripcion", data.descripcion);
-    formData.append("precio", data.precio);
-    formData.append("garage", data.garage);
-    formData.append("departamento", data.departamento);
-    formData.append("zona", data.zona);
-    formData.append("domicilio", data.domicilio);
+
     formData.append("file", data.file[0]);
 
     const config = {
@@ -50,12 +41,12 @@ function FormAdd(props) {
 
   return (
     <>
-      <form style={{ margin: 10 }} onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl
           isRequired
           display="flex"
           flexDirection="column"
-          w="80vw"
+          w="50vw"
           justifyContent="center"
           m="auto"
         >
@@ -260,11 +251,11 @@ function FormAdd(props) {
             />
           </Flex>
         </FormControl>
-        <Button m="auto" size="md" colorScheme="yellow" type="submit">
+        <Button m="auto" size="md" colorScheme="whatsapp" type="submit">
           Enviar
         </Button>
       </form>
     </>
   );
 }
-export default FormAdd;
+export default Prueba;
