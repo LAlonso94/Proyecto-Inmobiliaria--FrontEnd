@@ -7,12 +7,12 @@ import AddEstate from "../../components/Add/AddEstate";
 
 function Admin() {
   const [selectObject, setSelectObject] = useState({
-    showAll: false,
+    showAll: true,
     addEstate: false,
     editEstate: false,
     deleteEstate: false,
   });
-  console.log(selectObject);
+
   return (
     <div>
       <Select selectObject={selectObject} setSelectObject={setSelectObject} />

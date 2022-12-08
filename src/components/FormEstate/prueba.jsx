@@ -25,7 +25,18 @@ function Prueba(props) {
 
   const onSubmit = (data) => {
     console.log(data);
-    props.sendForm(data);
+    const formData = new FormData();
+    formData.append("operacion", data.operacion);
+    formData.append("tipo", data.tipo);
+
+    formData.append("file", data.file[0]);
+
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    props.sendForm(formData, config);
   };
 
   return (

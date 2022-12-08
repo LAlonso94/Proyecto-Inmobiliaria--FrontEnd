@@ -5,8 +5,9 @@ import FormAdd from "../FormEstate/FormAdd";
 import Prueba from "../FormEstate/prueba";
 
 function AddEstate() {
-  const sendForm = async (credentials) => {
-    await Rule_Estates.postAdd(credentials)
+  const sendForm = async (credentials, config) => {
+    //sacar config para original
+    await Rule_Estates.postAdd(credentials, config) //sacar config para original
       .then((response) => {
         alert("El inmueble se ha agregado correctamente");
       })
@@ -15,8 +16,8 @@ function AddEstate() {
       });
   };
   return (
-    <div>
-      {/*       <FormAdd sendForm={sendForm} /> */}
+    <div style={{ padding: 20 }}>
+      {/* <FormAdd sendForm={sendForm} /> */}
       <Prueba sendForm={sendForm} />
     </div>
   );

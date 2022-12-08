@@ -31,9 +31,10 @@ const Rule_Estates = {
         throw error.response.data.error;
       });
   },
-  postAdd: async (credentials) => {
+  postAdd: async (credentials, config) => {
+    //sacar config para original antes de imagen
     const url = `/api/inmuebles/nuevo`;
-    return await API.post(url, credentials)
+    return await API.post(url, credentials, config)
       .then((response) => {
         return response.data;
       })

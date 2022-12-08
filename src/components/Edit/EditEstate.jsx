@@ -2,6 +2,13 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Rule_Estates from "../../api/Rule_Estates";
 import FormEdit from "../FormEstate/FormEdit";
+import {
+  Input,
+  InputGroup,
+  Button,
+  InputRightElement,
+  Flex,
+} from "@chakra-ui/react";
 
 function EditEstate() {
   const [idEstate, setIdEstate] = useState();
@@ -32,19 +39,26 @@ function EditEstate() {
       });
   };
 
-  //boton on click consulta al endpoint que tengo (mismo que stefi)
-  //setear bandera que activa el form con los datos que devuelve el enndpoint
-  //form por props recibe los datos del inmueble y los carga
   return (
     <div>
-      <input type="text" onChange={handleId} placeholder="Id" />
-      <button
-        onClick={() => {
-          detailEstate(idEstate);
-        }}
-      >
-        Buscar
-      </button>
+      <Flex padding="5" justify="center">
+        <InputGroup size="md" width="50%">
+          <Input onChange={handleId} placeholder="Escriba el ID" />
+          <InputRightElement width="4.5rem">
+            <Button
+              margin="0.5"
+              h="1.75rem"
+              size="sm"
+              onClick={() => {
+                detailEstate(idEstate);
+              }}
+              colorScheme="red"
+            >
+              BUSCAR
+            </Button>
+          </InputRightElement>
+        </InputGroup>
+      </Flex>
       {detail && <FormEdit detail={detail} editForm={editForm} />}
     </div>
   );
