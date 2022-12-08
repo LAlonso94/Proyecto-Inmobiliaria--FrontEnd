@@ -1,9 +1,8 @@
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
-import { useRouteError, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import photo from "/404.jpg";
 
 function ErrorPage() {
-  const error = useRouteError();
   return (
     <Flex direction="column" justify="start" align="center" h="100vh">
       <Image src={photo} h="30%" borderRadius="30px" mt="15vh"></Image>

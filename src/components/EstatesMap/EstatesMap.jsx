@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -29,11 +28,14 @@ function EstatesMap(props) {
               >
                 {item.operacion}
               </Badge>
-              <Image
-                src={`http://localhost:3001/api/photos/${item.inmuebleId}`}
-                alt="Foto de inmueble"
-                borderRadius="lg"
-              />
+
+              <div style={{ minHeight: "250px", maxHeight: "250px" }}>
+                <Image
+                  src={`http://localhost:3001/api/photos/${item.inmuebleId}`}
+                  alt="Foto de inmueble"
+                  borderRadius="lg"
+                />
+              </div>
               <Stack mt="6" spacing="3">
                 <Divider />
                 <Flex align="center" justify="space-between">
@@ -44,13 +46,20 @@ function EstatesMap(props) {
                     <b>{item.zona}</b>
                   </Text>
                 </Flex>
-                <Text fontSize="xs">{item.observaciones}</Text>
+                <div style={{ minHeight: "80px", maxHeight: "80px" }}>
+                  <Text fontSize="xs">{item.observaciones}</Text>
+                </div>
               </Stack>
             </CardBody>
             <CardFooter>
-              <Text color="red.500" fontSize="2xl">
-                <b>{item.precio}</b>
-              </Text>
+              <Flex w="100%" justify="space-between">
+                <Text color="red.500" fontSize="2xl">
+                  <b>{item.precio}</b>
+                </Text>
+                <Text fontSize="lg">
+                  <p>ID:{item.inmuebleId}</p>
+                </Text>
+              </Flex>
             </CardFooter>
           </Card>
         </Link>

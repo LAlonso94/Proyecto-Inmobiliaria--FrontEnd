@@ -9,7 +9,6 @@ import Services from "../../components/Services/Services";
 
 function Home() {
   const [list, setList] = useState([]);
-  const [reset, setReset] = useState(false);
 
   const showEstates = async () => {
     const estates = await Rule_Estates.getEstates();

@@ -68,9 +68,9 @@ function Header(props) {
               >
                 <option value="Apartamento">Apartamento</option>
                 <option value="Casa">Casa</option>
-                <option value="localComercial">Local Comercial</option>
-                <option value="localIndustrial">Local Industrial</option>
-                <option value="terrenos">Terrenos</option>
+                <option value="Local comercial">Local Comercial</option>
+                <option value="Local industrial">Local Industrial</option>
+                <option value="Terreno">Terrenos</option>
               </Select>
               <Select
                 size="lg"

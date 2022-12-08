@@ -6,8 +6,6 @@ import {
   Flex,
   Input,
   Button,
-  useColorMode,
-  useColorModeValue,
   Text,
   Box,
   Image,
@@ -91,8 +89,8 @@ function Login() {
                 {...register("password", { required: true, minLength: 8 })}
               />
               {errors.password && (
-                <Text fontSize="sm" align="center" mb="1.5">
-                  La Contraseña ingresada no es valida
+                <Text fontSize="sm" align="center" mb="1.5" color="white">
+                  La contraseña debe tener un minimo de 8 caracteres
                 </Text>
               )}
               <Button colorScheme="red" mb={8} type="submit">
