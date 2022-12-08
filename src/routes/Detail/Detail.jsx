@@ -17,6 +17,7 @@ import {
   Textarea,
   HStack,
   VStack,
+  Box,
 } from "@chakra-ui/react";
 import {
   BsTelephoneFill,
@@ -60,53 +61,55 @@ function Detail() {
           ></Text>
         </Stack>
         <Stack>
-          <VStack
-            pos="absolute"
-            zIndex="100"
-            color="white"
-            h="auto"
-            w="auto"
-            bg="red.500"
-            alignItems="flex-start"
-            p="0.5em"
-            borderRadius="0.5em"
-          >
-            <HStack>
-              <Icon boxSize="2em" as={BsHouseFill} />
+          <Box alignSelf="center" w={{ base: "75%", lg: "60%" }}>
+            <VStack
+              pos="absolute"
+              zIndex="100"
+              color="white"
+              h="auto"
+              w="auto"
+              bg="red.500"
+              alignItems="flex-start"
+              p="0.5em"
+              borderRadius="0.5em"
+            >
+              <HStack>
+                <Icon boxSize={{ base: "1em", lg: "2em" }} as={BsHouseFill} />
+                <Text
+                  textTransform="uppercase"
+                  fontSize={{ base: "xs", lg: "2xl" }}
+                >
+                  {detail?.operacion}
+                </Text>
+              </HStack>
               <Text
                 textTransform="uppercase"
-                fontSize={{ base: "1xl", lg: "2xl" }}
+                fontSize={{ base: "sm", lg: "2xl" }}
               >
-                {detail?.operacion}
+                {detail?.precio}
               </Text>
-            </HStack>
-            <Text
-              textTransform="uppercase"
-              fontSize={{ base: "1xl", lg: "3xl" }}
-            >
-              {detail?.precio}
-            </Text>
-          </VStack>
-          <Carousel>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(4).jpeg" />
-            </div>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/i311704147_1803511309991154_6805421820029665669_noo.jpg" />
-            </div>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/i309425992_1803541783321440_8836522809821014496_n.jpg" />
-            </div>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(3).jpeg" />
-            </div>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45.jpeg" />
-            </div>
-            <div>
-              <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(2).jpeg" />
-            </div>
-          </Carousel>
+            </VStack>
+            <Carousel>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(4).jpeg" />
+              </div>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/i311704147_1803511309991154_6805421820029665669_noo.jpg" />
+              </div>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/i309425992_1803541783321440_8836522809821014496_n.jpg" />
+              </div>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(3).jpeg" />
+              </div>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45.jpeg" />
+              </div>
+              <div>
+                <img src="https://inmobiliariarossi.com.uy/image/iWhatsApp%20Image%202022-10-20%20at%2020.09.45%20(2).jpeg" />
+              </div>
+            </Carousel>
+          </Box>
         </Stack>
         <Stack>
           <Text

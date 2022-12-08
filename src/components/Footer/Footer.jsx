@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import { useForm } from "react-hook-form";
+
 import {
   Icon,
   Stack,
@@ -88,7 +89,12 @@ function Footer() {
         <Stack className="form" justifyContent="center">
           <Stack justifyContent="center" gap={5} direction="row ">
             <Stack>
-              <Icon color="white" boxSize="2em" as={BsWhatsapp} />
+              <a
+                href="https://api.whatsapp.com/send?phone=(+598)99867688"
+                target="_blank"
+              >
+                <Icon color="white" boxSize="2em" as={BsWhatsapp} />
+              </a>
             </Stack>
             <Stack>
               <Icon color="white" boxSize="2em" as={AiFillFacebook} />

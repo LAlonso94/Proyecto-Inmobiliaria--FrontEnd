@@ -24,7 +24,6 @@ import logo from "/public/logoRossi.png";
 
 function Register() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { toggleColorMode } = useColorMode();
   const formBackground = useColorModeValue("gray.300", "blue.700");
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
