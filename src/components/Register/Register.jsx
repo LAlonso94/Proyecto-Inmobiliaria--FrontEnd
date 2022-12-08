@@ -45,11 +45,11 @@ function Register() {
           bg={formBackground}
           borderRadius={8}
           maxW="390px"
-          maxH="750px"
+          maxH="600px"
         >
           <ModalHeader w="80%" display="flex" justifyContent="space-evenly">
             <Image src={logo} width="12" />
-            <Text fontSize="4xl" textAlign="center">
+            <Text fontSize="4xl" textAlign="center" color="white">
               Registrarse
             </Text>
           </ModalHeader>
@@ -102,25 +102,10 @@ function Register() {
             <Button
               variant="link"
               colorScheme="blue"
-              onClick={() => navigate("/api/login")}
+              onClick={() => navigate("/login")}
             >
               Iniciar sesión
             </Button>
-            <FormControl display="flex" justifyContent="center" mt="8">
-              <Text
-                htmlFor="dark_mode"
-                fontSize="1xl"
-                textAlign="center"
-                mr="2"
-              >
-                Modo oscuro
-              </Text>
-              <Switch
-                id="dark_mode"
-                colorScheme="red"
-                onChange={toggleColorMode}
-              />
-            </FormControl>
           </ModalBody>
         </ModalContent>
       </Modal>

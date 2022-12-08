@@ -1,5 +1,11 @@
 import React from "react";
-
+import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Rule_Estates from "../../api/Rule_Estates";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
@@ -20,40 +26,29 @@ import {
   BsCheckCircleFill,
   BsHouseFill,
 } from "react-icons/bs";
-import Nav from "../../components/Nav/Nav";
-import Footer from "../../components/Footer/Footer";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Rule_Estates from "../../api/Rule_Estates";
-import { useState } from "react";
-import { useEffect } from "react";
 
 function Detail() {
   const { id } = useParams();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
-
   const [detail, setDetail] = useState();
 
   const detailEstate = async (estate) => {
     await Rule_Estates.getSearchId(estate)
       .then((result) => {
         setDetail(result);
-        console.log(result);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  console.log(detail, "DETALLE");
   useEffect(() => {
     detailEstate(id);
   }, []);
 
   return (
     <div>
-      {/* <Nav /> */}
-
+      <Nav />
       <Stack w="auto" gap={6}>
         <Stack>
           <Text
@@ -62,9 +57,7 @@ function Detail() {
             fontSize="2xl"
             textAlign="center"
             color="white"
-          >
-            {/* {detail?.operacion} */}
-          </Text>
+          ></Text>
         </Stack>
         <Stack>
           <VStack
@@ -182,7 +175,6 @@ function Detail() {
             </Text>
           </Stack>
 
-          {/* {{ base: "red.500", lg: "blue" }} */}
           <form className="formDetail" onSubmit={handleSubmit(onSubmit)}>
             <Stack w={{ base: "20em", lg: "60em" }} gap={3}>
               <HStack w=" 100% ">

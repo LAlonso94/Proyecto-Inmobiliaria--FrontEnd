@@ -1,5 +1,6 @@
 import React from "react";
-
+import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
+import { useForm } from "react-hook-form";
 import {
   Icon,
   Stack,
@@ -9,8 +10,6 @@ import {
   Textarea,
   Box,
 } from "@chakra-ui/react";
-import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
-import { useForm } from "react-hook-form";
 import {
   BsTelephoneFill,
   BsFillEnvelopeFill,
@@ -23,6 +22,7 @@ import {
 function Footer() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
+
   return (
     <div className="container">
       <Box w="100%" h="0.5em" bg="red.500" />
@@ -32,27 +32,44 @@ function Footer() {
         direction={{ base: "column", lg: "row" }}
         bg="gray"
       >
-        {/* <Stack p="1.5em" bg="gray"> */}
         <Stack>
           <Stack>
-            <Text color="white" fontSize="3xl" as="b">
+            <Text color="white" fontSize={{ base: "lg", lg: "3xl" }} as="b">
               Contacto
             </Text>
           </Stack>
-          <Stack color="white" w=" 20em " direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            w=" 20em "
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsHouseFill} />
             <Text> Rivera 641 Las Piedras-Canelones, Uruguay</Text>
           </Stack>
-          <Stack color="white" direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsFillEnvelopeFill} />
             <Text>contacto@inmobiliariarossi.com.uy</Text>
           </Stack>
-          <Stack color="white" direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsTelephoneFill} />
             <Text> 23656520</Text>
           </Stack>
 
-          <Stack color="white" w=" 20em " direction="row">
+          <Stack
+            fontSize={{ base: "small", lg: "sm" }}
+            color="white"
+            w=" 20em "
+            direction="row"
+          >
             <Icon boxSize="1.5em" as={BsFillPeopleFill} />
             <Text>Atención al público: lunes a jueves 14:30hs a 18hs</Text>
           </Stack>
@@ -84,7 +101,7 @@ function Footer() {
             </Stack>
           </Stack>
           <Stack>
-            <Text as="b" color="white">
+            <Text fontSize={{ base: "small", lg: "sm" }} as="b" color="white">
               Comentarios y/o sugerencias:
             </Text>
 

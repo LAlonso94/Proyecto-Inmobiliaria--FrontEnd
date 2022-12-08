@@ -1,19 +1,6 @@
 .headerContainer {
   display: flex;
-  padding: 3em;
-  gap: 2em;
   background-image: url(/public/foto.jpg);
-  height: 60vh;
   align-items: center;
   flex-direction: column;
-}
-
-.hr {
-  height: 0.5em;
-  margin-left: 0%;
-  margin-right: 0%;
-  background-color: #e31e24;
-}
-button:hover {
-  color: red;
 }

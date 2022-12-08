@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header";
 import Company from "../../components/Company/Company";
 import EstatesMap from "../../components/EstatesMap/EstatesMap";
 import Rule_Estates from "../../api/Rule_Estates";
+import Services from "../../components/Services/Services";
 
 function Home() {
   const [list, setList] = useState([]);
@@ -28,6 +29,7 @@ function Home() {
       <Nav />
       <Header filterEstates={filterEstates} />
       <EstatesMap list={list} />
+      <Services />
       <Company />
       <Footer />
     </div>
