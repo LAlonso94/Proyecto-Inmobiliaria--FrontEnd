@@ -1,8 +1,11 @@
 import React from "react";
-import { Select } from "@chakra-ui/react";
+import { Select, IconButton } from "@chakra-ui/react";
 import "../Select/Select.css";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 function select(props) {
+  const navigate = useNavigate();
   const handleSelect = (e) => {
     e.preventDefault();
     let nuevoObj = {};
@@ -18,6 +21,14 @@ function select(props) {
   };
   return (
     <form className="formContainer">
+      <IconButton
+        margin="5"
+        aria-label="backHome"
+        icon={<ArrowBackIcon />}
+        onClick={() => {
+          navigate("/");
+        }}
+      />
       <b>
         <label className="label">ELIJA LA ACCIÓN:</label>
       </b>

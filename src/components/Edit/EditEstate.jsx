@@ -8,7 +8,9 @@ import {
   Button,
   InputRightElement,
   Flex,
+  InputLeftElement,
 } from "@chakra-ui/react";
+import { Search2Icon } from "@chakra-ui/icons";
 
 function EditEstate() {
   const [idEstate, setIdEstate] = useState();
@@ -43,6 +45,10 @@ function EditEstate() {
     <div>
       <Flex padding="5" justify="center">
         <InputGroup size="md" width="50%">
+          <InputLeftElement
+            pointerEvents="none"
+            children={<Search2Icon color="gray.300" />}
+          />
           <Input onChange={handleId} placeholder="Escriba el ID" />
           <InputRightElement width="4.5rem">
             <Button

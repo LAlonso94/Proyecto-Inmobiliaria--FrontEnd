@@ -6,8 +6,9 @@ import {
   Button,
   InputRightElement,
   Flex,
+  InputLeftElement,
 } from "@chakra-ui/react";
-
+import { DeleteIcon } from "@chakra-ui/icons";
 function DeleteEstate() {
   const [id, setId] = useState();
   const handleId = (e) => {
@@ -27,6 +28,10 @@ function DeleteEstate() {
   return (
     <Flex alignItems="center" justify="center" height="70vh">
       <InputGroup size="md" width="50%">
+        <InputLeftElement
+          pointerEvents="none"
+          children={<DeleteIcon color="gray.300" />}
+        />
         <Input onChange={handleId} placeholder="Escriba el ID" />
         <InputRightElement width="4.5rem">
           <Button

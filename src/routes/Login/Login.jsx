@@ -6,20 +6,19 @@ import {
   Flex,
   Input,
   Button,
-  FormControl,
-  Switch,
   useColorMode,
   useColorModeValue,
   Text,
   Box,
   Image,
+  IconButton,
 } from "@chakra-ui/react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+
 import { loginSesion } from "../../api/Rule_auth_users";
 import Register from "../../components/Register/Register";
 
 function Login() {
-  const { toggleColorMode } = useColorMode();
-  const formBackground = useColorModeValue("gray.300", "blue.700");
   const navigate = useNavigate();
   const {
     register,
@@ -102,10 +101,17 @@ function Login() {
             </form>
           </Box>
 
-          <Text fontSize="1xl" textAlign="center">
+          <Text fontSize="1xl" textAlign="center" pt="10">
             ¿No tienes cuenta?
           </Text>
           <Register />
+          <IconButton
+            aria-label="backHome"
+            icon={<ArrowBackIcon />}
+            onClick={() => {
+              navigate("/");
+            }}
+          />
         </Flex>
       </Flex>
     </div>
