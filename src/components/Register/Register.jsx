@@ -21,6 +21,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import logo from "/public/logoRossi.png";
+import { registerNewUser } from "../../api/Rule_auth_users";
 
 function Register() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,7 +29,14 @@ function Register() {
   const formBackground = useColorModeValue("gray.300", "blue.700");
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) =>
+    await registerNewUser(data)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(error);
+      });
 
   return (
     <>
@@ -57,7 +65,9 @@ function Register() {
           <ModalBody w="100%" pt="1.5em" align="center" justify="center">
             <Flex align="center" justify="center">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <h6>Nombre:</h6>
+                <h6>
+                  <b>Nombre:</b>
+                </h6>
                 <Input
                   placeholder="Nombre"
                   type="text"
@@ -66,7 +76,9 @@ function Register() {
                   mb="4"
                   {...register("nombre", { required: true })}
                 />
-                <h6>Correo electronico:</h6>
+                <h6>
+                  <b>Correo electrónico:</b>
+                </h6>
                 <Input
                   placeholder="E-mail"
                   type="email"
@@ -75,7 +87,9 @@ function Register() {
                   {...register("email", { required: true, minLength: 8 })}
                 />
 
-                <h6>Contraseña:</h6>
+                <h6>
+                  <b>Contraseña:</b>
+                </h6>
                 <Input
                   placeholder="Contraseña"
                   type="password"
@@ -99,11 +113,7 @@ function Register() {
             <Text fontSize="1xl" textAlign="center">
               ¿Ya tienes cuenta?
             </Text>
-            <Button
-              variant="link"
-              colorScheme="blue"
-              onClick={() => navigate("/login")}
-            >
+            <Button variant="link" colorScheme="blue" onClick={onClose}>
               Iniciar sesión
             </Button>
           </ModalBody>
