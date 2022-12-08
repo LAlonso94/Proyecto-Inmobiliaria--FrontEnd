@@ -20,8 +20,8 @@ function Nav() {
   return (
     <div>
       <Box h="0.5em" bg="red.500" />
-      <Flex display={["none", "none", "flex", "flex"]}>
-        <HStack bg="white" color="white">
+      <Flex justifyContent="center" display={["none", "none", "flex", "flex"]}>
+        <HStack gap="25em" bg="white" color="white">
           <Image bg="white" src="../logoRossi.png" alt="logo" width="36" />
 
           <Wrap>
