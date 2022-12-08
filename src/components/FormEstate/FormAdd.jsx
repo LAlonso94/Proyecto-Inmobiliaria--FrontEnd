@@ -19,13 +19,33 @@ function FormAdd(props) {
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    props.sendForm(data);
+    const formData = new FormData();
+    formData.append("operacion", data.operacion);
+    formData.append("tipo", data.tipo);
+    formData.append("dormitorios", data.dormitorios);
+    formData.append("baños", data.baños);
+    formData.append("metrosTerreno", data.metrosTerreno);
+    formData.append("metrosEdificados", data.metrosEdificados);
+    formData.append("observaciones", data.observaciones);
+    formData.append("descripcion", data.descripcion);
+    formData.append("precio", data.precio);
+    formData.append("garage", data.garage);
+    formData.append("departamento", data.departamento);
+    formData.append("zona", data.zona);
+    formData.append("domicilio", data.domicilio);
+    formData.append("file", data.file[0]);
+
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    props.sendForm(formData, config);
   };
 
   return (
@@ -225,6 +245,18 @@ function FormAdd(props) {
               placeholder="Paysandú 63, esq. 18 de Julio"
               mb="1em"
               {...register("domicilio")}
+            />
+          </Flex>
+          <Flex h="3em" mb="1em">
+            <FormLabel w="30%" h="100%">
+              Fotos
+            </FormLabel>
+            <Input
+              w="70%"
+              variant="outline"
+              type="file"
+              mb="1em"
+              {...register("file")}
             />
           </Flex>
         </FormControl>

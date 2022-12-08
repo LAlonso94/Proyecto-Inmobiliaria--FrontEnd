@@ -17,8 +17,8 @@ function AddEstate() {
   };
   return (
     <div style={{ padding: 20 }}>
-      {/* <FormAdd sendForm={sendForm} /> */}
-      <Prueba sendForm={sendForm} />
+      <FormAdd sendForm={sendForm} />
+      {/*       <Prueba sendForm={sendForm} /> */}
     </div>
   );
 }
