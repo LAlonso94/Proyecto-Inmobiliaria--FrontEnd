@@ -49,7 +49,7 @@ function Register() {
         >
           <ModalHeader w="80%" display="flex" justifyContent="space-evenly">
             <Image src={logo} width="12" />
-            <Text fontSize="4xl" textAlign="center">
+            <Text fontSize="4xl" textAlign="center" color="white">
               Registrarse
             </Text>
           </ModalHeader>
@@ -102,7 +102,7 @@ function Register() {
             <Button
               variant="link"
               colorScheme="blue"
-              onClick={() => navigate("/api/login")}
+              onClick={() => navigate("/login")}
             >
               Iniciar sesión
             </Button>
