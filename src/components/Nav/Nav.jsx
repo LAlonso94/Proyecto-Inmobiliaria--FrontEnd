@@ -1,5 +1,4 @@
 import { BsListUl } from "react-icons/bs";
-import Services from "../Services/Services";
 import { Link } from "react-router-dom";
 import { isAuth } from "../../api/Rule_auth_users";
 import {
@@ -29,6 +28,7 @@ function Nav() {
               <Button colorScheme="red" variant="solid">
                 INICIO
               </Button>
+
               <Button colorScheme="red" variant="solid">
                 EMPRESA
               </Button>

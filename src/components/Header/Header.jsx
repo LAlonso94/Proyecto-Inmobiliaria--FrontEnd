@@ -1,16 +1,7 @@
 import React, { useState } from "react";
 import "../Header/Header.css";
 import { SearchIcon } from "@chakra-ui/icons";
-import {
-  Menu,
-  Stack,
-  Text,
-  Select,
-  IconButton,
-  Box,
-  Icon,
-} from "@chakra-ui/react";
-import { BsWhatsapp } from "react-icons/bs";
+import { Menu, Stack, Text, Select, IconButton, Box } from "@chakra-ui/react";
 
 function Header(props) {
   const [operacion, setOperacion] = useState("");
