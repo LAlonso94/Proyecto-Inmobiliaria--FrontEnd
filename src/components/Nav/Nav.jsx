@@ -33,7 +33,6 @@ function Nav() {
               <Button w="9em" colorScheme="red" variant="solid">
                 INICIO
               </Button>
-
               <Button w="9em" colorScheme="red" variant="solid">
                 EMPRESA
               </Button>
