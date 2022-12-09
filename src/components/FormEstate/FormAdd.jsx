@@ -67,7 +67,7 @@ function FormAdd(props) {
               w="70%"
               variant="outline"
               mb="1em"
-              {...register("operacion")}
+              {...register("operacion", { required: true })}
             >
               <option value="Venta">Venta</option>
               <option value="Alquiler">Alquiler</option>
@@ -77,7 +77,12 @@ function FormAdd(props) {
             <FormLabel h="100%" w="30%">
               Tipo de inmueble
             </FormLabel>
-            <Select w="70%" variant="outline" mb="1em" {...register("tipo")}>
+            <Select
+              w="70%"
+              variant="outline"
+              mb="1em"
+              {...register("tipo", { required: true })}
+            >
               <option value="Casa">Casa</option>
               <option value="Apartamento">Apartamento</option>
               <option value="Local comercial">Local comercial</option>
@@ -96,7 +101,10 @@ function FormAdd(props) {
             <FormLabel h="100%" w="30%">
               Dormitorios
             </FormLabel>
-            <NumberInput w="70%" {...register("dormitorios")}>
+            <NumberInput
+              w="70%"
+              {...register("dormitorios", { required: true })}
+            >
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -115,7 +123,7 @@ function FormAdd(props) {
             <FormLabel h="100%" w="30%">
               Baños
             </FormLabel>
-            <NumberInput w="70%" {...register("baños")}>
+            <NumberInput w="70%" {...register("baños", { required: true })}>
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />
@@ -132,7 +140,7 @@ function FormAdd(props) {
               variant="outline"
               placeholder="500 mt2"
               mb="1em"
-              {...register("metrosTerreno")}
+              {...register("metrosTerreno", { required: true })}
             />
           </Flex>
           <Flex h="3em" mb="1em">
@@ -144,7 +152,7 @@ function FormAdd(props) {
               variant="outline"
               placeholder="70 mt2"
               mb="1em"
-              {...register("metrosEdificados")}
+              {...register("metrosEdificados", { required: true })}
             />
           </Flex>
           <Flex h="5em" mb="1em">
@@ -156,7 +164,7 @@ function FormAdd(props) {
               h="100%"
               mb="1em"
               placeholder="Muy buena ubicacion. Garantia ANDA, CGN, etc."
-              {...register("observaciones")}
+              {...register("observaciones", { required: true })}
             />
           </Flex>
           <Flex h="5em" mb="1em">
@@ -168,7 +176,7 @@ function FormAdd(props) {
               h="100%"
               mb="1em"
               placeholder="Complejo habitacional. Servicios de luz y agua, etc."
-              {...register("descripcion")}
+              {...register("descripcion", { required: true })}
             />
           </Flex>
           <Flex h="3em" mb="1em">
@@ -180,14 +188,19 @@ function FormAdd(props) {
               variant="outline"
               placeholder="USD 90.000"
               mb="1em"
-              {...register("precio")}
+              {...register("precio", { required: true })}
             />
           </Flex>
           <Flex h="3em" mb="1em">
             <FormLabel h="100%" w="30%">
               Garage
             </FormLabel>
-            <Select w="70%" variant="outline" mb="1em" {...register("garage")}>
+            <Select
+              w="70%"
+              variant="outline"
+              mb="1em"
+              {...register("garage", { required: true })}
+            >
               <option value="No">No</option>
               <option value="Si">Si</option>
             </Select>
@@ -200,7 +213,7 @@ function FormAdd(props) {
               w="70%"
               variant="outline"
               mb="1em"
-              {...register("departamento")}
+              {...register("departamento", { required: true })}
             >
               <option value="Montevideo">Montevideo</option>
               <option value="Artigas">Artigas</option>
@@ -232,7 +245,7 @@ function FormAdd(props) {
               variant="outline"
               placeholder="Pocitos - Carrasco - Las Piedas - Punta del Este"
               mb="1em"
-              {...register("zona")}
+              {...register("zona", { required: true })}
             />
           </Flex>
           <Flex h="3em" mb="1em">
@@ -244,7 +257,7 @@ function FormAdd(props) {
               variant="outline"
               placeholder="Paysandú 63, esq. 18 de Julio"
               mb="1em"
-              {...register("domicilio")}
+              {...register("domicilio", { required: true })}
             />
           </Flex>
           <Flex h="3em" mb="1em">
@@ -256,7 +269,7 @@ function FormAdd(props) {
               //variant="outline"
               type="file"
               mb="1em"
-              {...register("file")}
+              {...register("file", { required: true })}
             />
           </Flex>
         </FormControl>

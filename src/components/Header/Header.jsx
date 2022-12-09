@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../Header/Header.css";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Menu, Stack, Text, Select, IconButton, Box } from "@chakra-ui/react";
 
@@ -23,22 +22,31 @@ function Header(props) {
     tipo: tipo,
     departamento: departamento,
   };
-  console.log(credentials);
 
   return (
-    <div>
-      <header className="headerContainer">
+    <>
+      <header
+        style={{
+          display: "flex",
+          backgroundImage: "url(/public/foto.jpg)",
+          alignItems: "center",
+          flexDirection: "column",
+          backgroundSize: "cover",
+        }}
+      >
         <Stack
-          gap="2em"
+          gap="8"
           p={{ base: "0em", lg: "2em" }}
-          h={{ base: "40vh", lg: "60vh" }}
+          h={{ base: "45vh", lg: "60vh" }}
+          w="auto"
         >
           <Text
-            pt={{ base: "1em" }}
+            pt={{ base: "8" }}
             fontSize={{ base: "1xl", lg: "3xl" }}
             as="b"
             color="white"
             alignItems="center"
+            textShadow="2px 2px 5px black"
           >
             ENCONTRÁ TU NUEVA CASA O APARTAMENTO
           </Text>
@@ -98,7 +106,7 @@ function Header(props) {
         </Stack>
       </header>
       <Box w="100%" h="0.5em" bg="red.500" />
-    </div>
+    </>
   );
 }
 

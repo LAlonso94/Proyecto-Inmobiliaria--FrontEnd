@@ -25,6 +25,7 @@ function Register() {
   const formBackground = useColorModeValue("gray.300", "blue.700");
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
+
   const onSubmit = async (data) =>
     await registerNewUser(data)
       .then(() => {
