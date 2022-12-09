@@ -10,6 +10,7 @@ import {
   Image,
   Badge,
   Flex,
+  Box,
 } from "@chakra-ui/react";
 
 function EstatesMap(props) {
@@ -17,8 +18,8 @@ function EstatesMap(props) {
     <Flex justify="center" direction="row" wrap="wrap">
       {props.list.map((item) => (
         <Link to={`/detalle/${item.inmuebleId}`}>
-          <Card maxW="sm">
-            <CardBody>
+          <Card w="sm" h="70vh" m="2">
+            <CardBody h="85%">
               <Badge
                 pos="absolute"
                 zIndex="100"
@@ -29,13 +30,13 @@ function EstatesMap(props) {
                 {item.operacion}
               </Badge>
 
-              <div style={{ minHeight: "250px", maxHeight: "250px" }}>
+              <Box h="70%" overflow="hidden">
                 <Image
                   src={`http://localhost:3001/api/photos/${item.inmuebleId}`}
                   alt="Foto de inmueble"
                   borderRadius="lg"
                 />
-              </div>
+              </Box>
               <Stack mt="6" spacing="3">
                 <Divider />
                 <Flex align="center" justify="space-between">
@@ -51,7 +52,7 @@ function EstatesMap(props) {
                 </div>
               </Stack>
             </CardBody>
-            <CardFooter>
+            <CardFooter h="15%">
               <Flex w="100%" justify="space-between">
                 <Text color="red.500" fontSize="2xl">
                   <b>{item.precio}</b>

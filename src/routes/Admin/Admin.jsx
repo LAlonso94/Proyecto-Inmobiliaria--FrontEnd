@@ -4,6 +4,7 @@ import DeleteEstate from "../../components/Delete/DeleteEstate";
 import EditEstate from "../../components/Edit/EditEstate";
 import ShowAll from "../../components/ShowAll/ShowAll";
 import AddEstate from "../../components/Add/AddEstate";
+import Nav from "../../components/Nav/Nav";
 
 function Admin() {
   const [selectObject, setSelectObject] = useState({
@@ -15,6 +16,7 @@ function Admin() {
 
   return (
     <div>
+      <Nav />
       <Select selectObject={selectObject} setSelectObject={setSelectObject} />
       {selectObject.showAll && <ShowAll />}
       {selectObject.addEstate && <AddEstate />}

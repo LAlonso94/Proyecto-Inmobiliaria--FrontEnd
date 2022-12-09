@@ -24,14 +24,14 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <Nav />
       <Header filterEstates={filterEstates} />
       <EstatesMap list={list} />
       <Services />
       <Company />
       <Footer />
-    </div>
+    </>
   );
 }
 
