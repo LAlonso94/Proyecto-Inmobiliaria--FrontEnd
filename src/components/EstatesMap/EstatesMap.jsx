@@ -58,7 +58,7 @@ function EstatesMap(props) {
                   <b>{item.precio}</b>
                 </Text>
                 <Text fontSize="lg">
-                  <p>ID:{item.inmuebleId}</p>
+                  <p>ID#{item.inmuebleId}</p>
                 </Text>
               </Flex>
             </CardFooter>
