@@ -52,7 +52,6 @@ function Nav() {
               >
                 INICIO
               </Button>
-
               <Button w="9em" colorScheme="red" variant="solid">
                 EMPRESA
               </Button>
