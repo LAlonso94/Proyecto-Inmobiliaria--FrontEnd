@@ -22,15 +22,15 @@ function Services() {
             SERVICIOS
           </Text>
           <Stack direction="row">
-            <Stack w="50%" direction="column">
+            <Stack w="48%" direction="column">
               <Stack gap={5} direction="row">
                 <Image
-                  objectFit="cover"
+                  objectFit="contain"
                   src="/public/prestamos.jpg"
                   alt="Dan Abramov"
                 />
                 <Stack boxSize="auto">
-                  <Text fontSize="xl" as="b">
+                  <Text fontSize="l" as="b">
                     PRESTAMOS INMOBILIARIOS
                   </Text>
                   <Text>
@@ -42,7 +42,7 @@ function Services() {
               </Stack>
               <Stack gap={5} direction="row">
                 <Image
-                  objectFit="cover"
+                  objectFit="contain"
                   src="/public/alquileres.jpg"
                   alt="Dan Abramov"
                 />
@@ -58,10 +58,10 @@ function Services() {
                 </Stack>
               </Stack>
             </Stack>
-            <Stack w="50%" direction="column">
+            <Stack w="48%" direction="column">
               <Stack gap={5} direction="row">
                 <Image
-                  objectFit="cover"
+                  objectFit="contain"
                   src="/public/ventas.jpg"
                   alt="Dan Abramov"
                 />
@@ -78,7 +78,7 @@ function Services() {
               </Stack>
               <Stack gap={5} direction="row">
                 <Image
-                  objectFit="cover"
+                  objectFit="contain"
                   src="/public/alquileres.jpg"
                   alt="Dan Abramov"
                 />

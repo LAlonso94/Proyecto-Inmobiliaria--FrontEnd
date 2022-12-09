@@ -1,7 +1,6 @@
 import React from "react";
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import { useForm } from "react-hook-form";
-
 import {
   Icon,
   Stack,
@@ -25,7 +24,7 @@ function Footer() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="container">
+    <>
       <Box w="100%" h="0.5em" bg="red.500" />
       <Stack
         justifyContent="space-between"
@@ -33,7 +32,7 @@ function Footer() {
         direction={{ base: "column", lg: "row" }}
         bg="gray"
       >
-        <Stack>
+        <Stack w="100%">
           <Stack>
             <Text color="white" fontSize={{ base: "lg", lg: "3xl" }} as="b">
               Contacto
@@ -145,7 +144,7 @@ function Footer() {
           </Stack>
         </Stack>
       </Stack>
-    </div>
+    </>
   );
 }
 
