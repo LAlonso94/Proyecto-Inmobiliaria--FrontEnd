@@ -19,7 +19,7 @@ function EstatesMap(props) {
       {props.list.map((item) => (
         <Link to={`/detalle/${item.inmuebleId}`}>
           <Card w="sm" h="70vh" m="2">
-            <CardBody h="85%">
+            <CardBody h="85%" overflow="hidden">
               <Badge
                 pos="absolute"
                 zIndex="100"
