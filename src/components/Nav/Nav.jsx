@@ -14,23 +14,42 @@ import {
   IconButton,
   Flex,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
+  const navigate = useNavigate();
   const logOut = () => {
     localStorage.removeItem("token");
     window.location.reload();
   };
 
   return (
-    <div>
-      <Box h="0.5em" bg="red.500" />
-      <Flex justifyContent="center" display={["none", "none", "flex", "flex"]}>
-        <HStack gap="4em" bg="white" color="white">
+    <>
+      <Box h="0.5em" bg="red.500" w="auto" />
+      <Flex
+        w="100%"
+        justifyContent="center"
+        display={["none", "none", "flex", "flex"]}
+      >
+        <HStack
+          gap="4em"
+          bg="white"
+          color="white"
+          w="100%"
+          justifyContent="space-around"
+        >
           <Image bg="white" src="../logoRossi.png" alt="logo" width="36" />
 
           <Wrap>
-            <WrapItem gap="1em">
-              <Button w="9em" colorScheme="red" variant="solid">
+            <WrapItem gap="1em" flexWrap="wrap">
+              <Button
+                w="9em"
+                colorScheme="red"
+                variant="solid"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 INICIO
               </Button>
               <Button w="9em" colorScheme="red" variant="solid">
@@ -102,7 +121,14 @@ function Nav() {
             display="flex"
             flexDirection="column"
           >
-            <Button w="10em" colorScheme="red" variant="solid">
+            <Button
+              w="10em"
+              colorScheme="red"
+              variant="solid"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               INICIO
             </Button>
             <Button w="10em" colorScheme="red" variant="solid">
@@ -144,7 +170,7 @@ function Nav() {
         </Menu>
       </Flex>
       <Box w="100%" h="0.5em" bg="red.500" />
-    </div>
+    </>
   );
 }
 

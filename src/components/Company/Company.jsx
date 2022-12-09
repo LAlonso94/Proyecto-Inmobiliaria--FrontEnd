@@ -51,15 +51,17 @@ function Company() {
           </Stack>
 
           <Stack spacing={8} className="skills">
-            <Stack mt="50" gap={5} direction="row">
+            <Stack mt="50" gap={5} direction="row" h="15vh">
               <Image
                 mt="5"
                 boxSize="70px"
-                objectFit="cover"
+                objectFit="contain"
                 src="/public/icons1.png"
                 alt="Dan Abramov"
+                w="15%"
+                h="100%"
               />
-              <Stack>
+              <Stack w="85%">
                 <Text fontSize="xl" as="b">
                   Experiencia
                 </Text>
@@ -70,15 +72,17 @@ function Company() {
                 </Text>
               </Stack>
             </Stack>
-            <Stack gap={5} direction="row">
+            <Stack gap={5} direction="row" h="15vh">
               <Image
                 mt="5"
                 boxSize={{ base: "20%", lg: "70px" }}
-                objectFit="cover"
+                objectFit="contain"
                 src="/public/icons2.png"
                 alt="Dan Abramov"
+                w="15%"
+                h="100%"
               />
-              <Stack>
+              <Stack w="85%">
                 <Text fontSize="xl" as="b">
                   Gestión integral
                 </Text>
@@ -89,15 +93,17 @@ function Company() {
                 </Text>
               </Stack>
             </Stack>
-            <Stack gap={5} direction="row">
+            <Stack gap={5} direction="row" h="15vh">
               <Image
                 mt="5"
                 boxSize={{ base: "20%", lg: "70px" }}
-                objectFit="cover"
+                objectFit="contain"
                 src="/public/icons3.png"
                 alt="Dan Abramov"
+                w="15%"
+                h="100%"
               />
-              <Stack>
+              <Stack w="85%">
                 <Text fontSize="xl" as="b">
                   Misión
                 </Text>
@@ -108,15 +114,17 @@ function Company() {
                 </Text>
               </Stack>
             </Stack>
-            <Stack gap={5} direction="row">
+            <Stack gap={5} direction="row" h="15vh">
               <Image
                 mt="5"
                 boxSize={{ base: "20%", lg: "70px" }}
-                objectFit="cover"
+                objectFit="contain"
                 src="/public/icons4.png"
                 alt="Dan Abramov"
+                w="15%"
+                h="100%"
               />
-              <Stack>
+              <Stack w="85%">
                 <Text fontSize="xl" as="b">
                   Visión
                 </Text>

@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import "../Login/Login.css";
 import {
   Flex,
   Input,
@@ -12,7 +11,6 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
-
 import { loginSesion } from "../../api/Rule_auth_users";
 import Register from "../../components/Register/Register";
 
@@ -28,13 +26,19 @@ function Login() {
     await loginSesion(data)
       .then(() => {
         navigate("/");
+        window.location.reload();
       })
       .catch((error) => {
         alert(error);
       });
 
   return (
-    <div className="loginContainer">
+    <div
+      style={{
+        backgroundImage:
+          "url(/Proyecto-Inmobiliaria--FrontEnd/public/foto.jpg)",
+      }}
+    >
       <Flex h="90vh" align="center" justify="center" mt="12">
         <Flex
           flexDirection="column"

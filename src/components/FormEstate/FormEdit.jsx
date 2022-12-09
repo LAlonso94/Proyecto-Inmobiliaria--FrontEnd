@@ -24,7 +24,6 @@ function FormEdit(props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     props.editForm(data);
   };
 
@@ -87,7 +86,6 @@ function FormEdit(props) {
               defaultValue={props.detail?.dormitorios}
               {...register("dormitorios")}
             >
-              {console.log(props.detail)}
               <NumberInputField h="100%" />
               <NumberInputStepper h="100%">
                 <NumberIncrementStepper />

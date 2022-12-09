@@ -1,6 +1,5 @@
 import React from "react";
 import { Select, IconButton } from "@chakra-ui/react";
-import "../Select/Select.css";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
@@ -20,17 +19,14 @@ function select(props) {
     props.setSelectObject(nuevoObj);
   };
   return (
-    <form className="formContainer">
-      <IconButton
-        margin="5"
-        aria-label="backHome"
-        icon={<ArrowBackIcon />}
-        onClick={() => {
-          navigate("/");
-        }}
-      />
+    <form
+      style={{
+        padding: "20px",
+        backgroundColor: "#f56565",
+      }}
+    >
       <b>
-        <label className="label">ELIJA LA ACCIÓN:</label>
+        <label style={{ color: "white" }}>ELIJA LA ACCIÓN:</label>
       </b>
       <Select
         p="3"
