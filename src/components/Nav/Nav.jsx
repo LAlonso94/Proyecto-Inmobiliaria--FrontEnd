@@ -23,6 +23,21 @@ function Nav() {
     window.location.reload();
   };
 
+  const scrollToAnchor = (anchorName) => {
+    if (anchorName) {
+      let anchorElement = document.getElementById(anchorName); //busca en el DOM renderizado los id que haya, y guarda el elemento cuyo id coincide con el que pase por parametro (lo defino en el onlcick, en este caso, "servicios"=anchorName)
+      if (anchorElement) {
+        anchorElement.scrollIntoView(); //si encuentra el id en la pagina que tengo renderizada, me lleva al id
+      } else {
+        navigate({
+          //si no encuentra el id en la pagina renderizada, me lleva al home y despues me redirige al id "servicios"
+          pathname: "/",
+          search: new URLSearchParams({ redirectTo: "servicios" }).toString(),
+        });
+      }
+    }
+  };
+
   return (
     <>
       <Box h="0.5em" bg="red.500" w="auto" />
@@ -55,7 +70,14 @@ function Nav() {
               <Button w="9em" colorScheme="red" variant="solid">
                 EMPRESA
               </Button>
-              <Button w="9em" colorScheme="red" variant="solid">
+              <Button
+                w="9em"
+                colorScheme="red"
+                variant="solid"
+                onClick={() => {
+                  scrollToAnchor("servicios"); //en el onClick defino a cual id quiero ir
+                }}
+              >
                 SERVICIOS
               </Button>
               <Button w="9em" colorScheme="red" variant="solid">
