@@ -27,12 +27,13 @@ function Footer() {
     <>
       <Box w="100%" h="0.5em" bg="red.500" />
       <Stack
+        display="flex"
         justifyContent="space-between"
         p="1.5em"
         direction={{ base: "column", lg: "row" }}
         bg="gray"
       >
-        <Stack w="100%">
+        <Stack>
           <Stack>
             <Text color="white" fontSize={{ base: "lg", lg: "3xl" }} as="b">
               Contacto
@@ -116,6 +117,7 @@ function Footer() {
                 type="text"
                 variant="filled"
                 required
+                {...register("nombreApellido", { required: true })}
               />
 
               <Input
@@ -129,6 +131,7 @@ function Footer() {
               <Textarea
                 variant="filled"
                 placeholder="Deje aqui su comentario"
+                {...register("comenario", { required: true })}
               ></Textarea>
 
               <Button
