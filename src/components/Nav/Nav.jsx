@@ -32,7 +32,7 @@ function Nav() {
         navigate({
           //si no encuentra el id en la pagina renderizada, me lleva al home y despues me redirige al id "servicios"
           pathname: "/",
-          search: new URLSearchParams({ redirectTo: "servicios" }).toString(),
+          search: new URLSearchParams({ redirectTo: "services" }).toString(),
         });
       }
     }
@@ -67,7 +67,14 @@ function Nav() {
               >
                 INICIO
               </Button>
-              <Button w="9em" colorScheme="red" variant="solid">
+              <Button
+                w="9em"
+                colorScheme="red"
+                variant="solid"
+                onClick={() => {
+                  scrollToAnchor("company");
+                }}
+              >
                 EMPRESA
               </Button>
               <Button
@@ -75,15 +82,22 @@ function Nav() {
                 colorScheme="red"
                 variant="solid"
                 onClick={() => {
-                  scrollToAnchor("servicios"); //en el onClick defino a cual id quiero ir
+                  scrollToAnchor("services"); //en el onClick defino a cual id quiero ir
                 }}
               >
                 SERVICIOS
               </Button>
-              <Button w="9em" colorScheme="red" variant="solid">
+              {/* <Button w="9em" colorScheme="red" variant="solid">
                 ESTUDIO
-              </Button>
-              <Button w="9em" colorScheme="red" variant="solid">
+              </Button> */}
+              <Button
+                w="9em"
+                colorScheme="red"
+                variant="solid"
+                onClick={() => {
+                  scrollToAnchor("contact");
+                }}
+              >
                 CONTACTO
               </Button>
               {isAuth() ? (
@@ -153,16 +167,37 @@ function Nav() {
             >
               INICIO
             </Button>
-            <Button w="10em" colorScheme="red" variant="solid">
+            <Button
+              w="10em"
+              colorScheme="red"
+              variant="solid"
+              onClick={() => {
+                scrollToAnchor("company");
+              }}
+            >
               EMPRESA
             </Button>
-            <Button w="10em" colorScheme="red" variant="solid">
+            <Button
+              w="10em"
+              colorScheme="red"
+              variant="solid"
+              onClick={() => {
+                scrollToAnchor("services");
+              }}
+            >
               SERVICIOS
             </Button>
-            <Button w="10em" colorScheme="red" variant="solid">
+            {/* <Button w="10em" colorScheme="red" variant="solid">
               ESTUDIO
-            </Button>
-            <Button w="10em" colorScheme="red" variant="solid">
+            </Button> */}
+            <Button
+              w="10em"
+              colorScheme="red"
+              variant="solid"
+              onClick={() => {
+                scrollToAnchor("contact");
+              }}
+            >
               CONTACTO
             </Button>
             {isAuth() ? (

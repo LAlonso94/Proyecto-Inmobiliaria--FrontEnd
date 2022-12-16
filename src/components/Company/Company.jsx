@@ -15,6 +15,7 @@ import {
 function Company() {
   return (
     <div>
+      <a id="company" />
       <Box w="auto" h="0.5em" bg="red.500" />
       <Flex display={["none", "none", "flex", "flex"]}>
         <Stack m="3em" direction={{ base: "column", lg: "row" }} spacing={10}>

@@ -25,6 +25,7 @@ function Footer() {
 
   return (
     <>
+      <a id="contact" />
       <Box w="100%" h="0.5em" bg="red.500" />
       <Stack
         display="flex"

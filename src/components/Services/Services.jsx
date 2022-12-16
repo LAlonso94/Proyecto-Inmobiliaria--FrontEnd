@@ -15,7 +15,7 @@ import {
 function Services() {
   return (
     <div>
-      <a id="servicios" />
+      <a id="services" />
       <Box w="100%" h="0.5em" bg="red.500" />
       <Flex display={["none", "none", "flex", "flex"]}>
         <Stack w="100%" m="3em" spacing={8}>
